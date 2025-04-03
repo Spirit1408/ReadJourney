@@ -1,0 +1,36 @@
+.wrapper {
+    background: var(--scale-dark);
+    border-radius: 30px;
+    padding: 20px 20px 40px;
+    & + div {
+        background: var(--scale-dark);
+        border-radius: 30px;
+        padding: 20px 20px 0px;
+        margin-top: 10px;
+    }
+}
+
+.logo {
+    fill: var(--main-text-marked);
+    width: 42px;
+    height: 17px;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0.02em;
+    color: var(--main-text-marked);
+    margin-bottom: 20px;
+    span {
+        color: var(--logo-text-marked);
+    }
+}
+
+.imgWrapper {
+    height: 351px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}

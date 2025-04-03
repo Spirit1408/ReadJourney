@@ -61,6 +61,6 @@ body {
 }
 
 .container {
+    padding: 20px;
     background-color: var(--main-bg);
-    padding: 0 20px;
 }

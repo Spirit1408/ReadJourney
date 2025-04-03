@@ -1,10 +1,10 @@
-import { LoginForm } from "../components/LoginForm/LoginForm";
+import { RegisterForm } from "../components/RegisterForm/RegisterForm";
 import { EntryLayout } from "./../components/EntryLayout/EntryLayout";
 
-export default function LoginPage () {
+export default function RegisterPage () {
     return <div className="container">
         <EntryLayout>
-            <LoginForm />
+            <RegisterForm />
         </EntryLayout>
     </div>;
 }
