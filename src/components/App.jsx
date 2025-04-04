@@ -1,5 +1,5 @@
 import { Toaster } from "react-hot-toast";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import RegisterPage from "./../pages/RegisterPage";
 import LoginPage from "./../pages/LoginPage";
 import { PrivateRoute } from "./PrivateRoute";
@@ -19,18 +19,20 @@ function App() {
                     path="/login"
                     element={<LoginPage />}
                 />
-                <Route
-                    path="/"
-                    element={<PrivateRoute component={MainLayout} />}
-                />
-                <Route
-                    path="/recommended"
-                    element={<PrivateRoute component={RecommendedPage} />}
-                />
-                <Route
-                    path="/library"
-                    element={<PrivateRoute component={MyLibraryPage} />}
-                />
+                <Route element={<PrivateRoute component={MainLayout} />}>
+                    <Route
+                        path="/"
+                        element={<Navigate to="/recommended" />}
+                    />
+                    <Route
+                        path="/recommended"
+                        element={<RecommendedPage />}
+                    />
+                    <Route
+                        path="/library"
+                        element={<MyLibraryPage />}
+                    />
+                </Route>
                 <Route
                     path="*"
                     element={<h1>404</h1>}
