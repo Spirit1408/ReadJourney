@@ -49,15 +49,17 @@ export const RegisterForm = () => {
 			<div className={css.inputs}>
 				<div className={css.inputGroup}>
 					<div className={css.passwordWrapper}>
-						<input
-							type="text"
-							placeholder="Name:"
-							{...register("name")}
-							className={clsx(css.input, {
-								[css.errorInput]: errors.name,
-								[css.validInput]: nameValue && !errors.name,
-							})}
-						/>
+						<div className={clsx(css.inputWithPrefix, {
+							[css.errorInput]: errors.name,
+							[css.validInput]: nameValue && !errors.name,
+						})}>
+							<span className={css.inputPrefix}>Name: </span>
+							<input
+								type="text"
+								{...register("name")}
+								className={css.inputWithPrefixField}
+							/>
+						</div>
 						<div className={css.icons}>
 							{errors.name ? (
 								<svg className={css.errorIcon}>
@@ -79,15 +81,17 @@ export const RegisterForm = () => {
 
 				<div className={css.inputGroup}>
 					<div className={css.passwordWrapper}>
-						<input
-							type="email"
-							placeholder="Mail:"
-							{...register("email")}
-							className={clsx(css.input, {
-								[css.errorInput]: errors.email,
-								[css.validInput]: emailValue && !errors.email,
-							})}
-						/>
+						<div className={clsx(css.inputWithPrefix, {
+							[css.errorInput]: errors.email,
+							[css.validInput]: emailValue && !errors.email,
+						})}>
+							<span className={css.inputPrefix}>Mail: </span>
+							<input
+								type="email"
+								{...register("email")}
+								className={css.inputWithPrefixField}
+							/>
+						</div>
 						<div className={css.icons}>
 							{errors.email ? (
 								<svg className={css.errorIcon}>
@@ -109,15 +113,17 @@ export const RegisterForm = () => {
 
 				<div className={css.inputGroup}>
 					<div className={css.passwordWrapper}>
-						<input
-							type={showPassword ? "text" : "password"}
-							placeholder="Password:"
-							{...register("password")}
-							className={clsx(css.input, {
-								[css.errorInput]: errors.password,
-								[css.validInput]: passwordValue && !errors.password,
-							})}
-						/>
+						<div className={clsx(css.inputWithPrefix, {
+							[css.errorInput]: errors.password,
+							[css.validInput]: passwordValue && !errors.password,
+						})}>
+							<span className={css.inputPrefix}>Password:</span>
+							<input
+								type={showPassword ? "text" : "password"}
+								{...register("password")}
+								className={css.inputWithPrefixField}
+							/>
+						</div>
 
 						<div className={css.icons}>
 							<button

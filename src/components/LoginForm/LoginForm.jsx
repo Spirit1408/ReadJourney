@@ -33,13 +33,12 @@ export const LoginForm = () => {
 		formState: { errors },
 	} = useForm({ resolver: yupResolver(schema), mode: "onChange" });
 
-	const nameValue = watch("name");
 	const emailValue = watch("email");
 	const passwordValue = watch("password");
 
 	const onSubmit = (data) => {
 		toast.success(
-			`Login with email ${data.email} was successful for ${data.name}!`,
+			`Login with email ${data.email} was successful!`,
 		);
 	};
 
@@ -48,15 +47,17 @@ export const LoginForm = () => {
 			<div className={css.inputs}>
 				<div className={css.inputGroup}>
 					<div className={css.passwordWrapper}>
-						<input
-							type="email"
-							placeholder="Mail:"
-							{...register("email")}
-							className={clsx(css.input, {
-								[css.errorInput]: errors.email,
-								[css.validInput]: emailValue && !errors.email,
-							})}
-						/>
+						<div className={clsx(css.inputWithPrefix, {
+							[css.errorInput]: errors.email,
+							[css.validInput]: emailValue && !errors.email,
+						})}>
+							<span className={css.inputPrefix}>Mail: </span>
+							<input
+								type="email"
+								{...register("email")}
+								className={css.inputWithPrefixField}
+							/>
+						</div>
 						<div className={css.icons}>
 							{errors.email ? (
 								<svg className={css.errorIcon}>
@@ -78,15 +79,17 @@ export const LoginForm = () => {
 
 				<div className={css.inputGroup}>
 					<div className={css.passwordWrapper}>
-						<input
-							type={showPassword ? "text" : "password"}
-							placeholder="Password:"
-							{...register("password")}
-							className={clsx(css.input, {
-								[css.errorInput]: errors.password,
-								[css.validInput]: passwordValue && !errors.password,
-							})}
-						/>
+						<div className={clsx(css.inputWithPrefix, {
+							[css.errorInput]: errors.password,
+							[css.validInput]: passwordValue && !errors.password,
+						})}>
+							<span className={css.inputPrefix}>Password:</span>
+							<input
+								type={showPassword ? "text" : "password"}
+								{...register("password")}
+								className={css.inputWithPrefixField}
+							/>
+						</div>
 
 						<div className={css.icons}>
 							<button
@@ -129,7 +132,7 @@ export const LoginForm = () => {
 				</button>
 
 				<Link to="/register" className={css.link}>
-					Don`t have an account?
+					Don't have an account?
 				</Link>
 			</div>
 		</form>

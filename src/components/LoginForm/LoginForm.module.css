@@ -38,6 +38,43 @@
     }
 }
 
+.inputWithPrefix {
+    display: flex;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--input-bg);
+    background-color: var(--input-bg);
+    transition: border-color 0.3s ease-in-out;
+    &:focus,
+    &:hover {
+        border: 1px solid rgba(249, 249, 249, 0.1);
+    }
+}
+
+.inputPrefix {
+    padding: 14px 5px 14px 14px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    color: var(--main-text);
+    background-color: transparent;
+    white-space: nowrap;
+}
+
+.inputWithPrefixField {
+    flex-grow: 1;
+    border: none;
+    padding: 14px 50px 14px 0;
+    outline: none;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    color: var(--main-text-marked);
+}
+
 .passwordWrapper {
     position: relative;
     .showPwdBtn {
@@ -143,6 +180,7 @@
     text-decoration: underline;
     color: var(--main-text);
     transition: color 0.2s ease-in-out;
+    text-wrap: nowrap;
     &:hover,
     &:focus {
         color: var(--main-text-marked);
