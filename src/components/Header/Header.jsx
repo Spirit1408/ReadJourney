@@ -1,18 +1,82 @@
-import { UserBar } from '../UserBar/UserBar';
-import { UserNav } from '../UserNav/UserNav';
-import css from './Header.module.css'
-import sprite from '/sprite.svg'
+import css from "./Header.module.css";
+import { UserBar } from "../UserBar/UserBar";
+import { UserNav } from "../UserNav/UserNav";
+import sprite from "../../../public/sprite.svg";
+import { useState, useEffect, useCallback } from "react";
+import clsx from "clsx";
 
 export const Header = () => {
-    return <header className={css.header}>
-        <svg className={css.logo}>
-            <use href={`${sprite}#logo-icon`}></use>
-        </svg>
+    const [isMenuOpen, setIsMenuOpen] = useState(false); 
 
-        <UserNav />
+    const handleOpenMenu = () => {
+        setIsMenuOpen(true);
+    };
 
-        <UserBar />
+    const handleCloseMenu = useCallback(() => {
+        setIsMenuOpen(false);
+    }, []);
+    
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape" && isMenuOpen) {
+                handleCloseMenu();
+            }
+        };
+        
+        window.addEventListener("keydown", handleKeyDown);
+        
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isMenuOpen, handleCloseMenu]);
 
-        <button type="button" className={css.logOutBtn}>Log out</button>
-    </header>;
-}
+    return (
+					<header className="container">
+						<div className={css.wrapper}>
+							<svg className={css.logo}>
+								<use href={`${sprite}#icon-logo`}></use>
+							</svg>
+
+							<div className={css.info}>
+								<UserBar />
+
+								<button
+									type="button"
+									className={css.menuBtn}
+									onClick={handleOpenMenu}
+								>
+									<svg className={css.menuBtnIcon}>
+										<use href={`${sprite}#icon-menu`}></use>
+									</svg>
+								</button>
+							</div>
+
+							<div
+								className={clsx(css.sideMenu, { [css.closed]: !isMenuOpen })}
+							>
+								<button
+									type="button"
+									className={css.closeMenuBtn}
+									onClick={handleCloseMenu}
+								>
+									<svg className={css.closeMenuBtnIcon}>
+										<use href={`${sprite}#icon-close`}></use>
+									</svg>
+								</button>
+
+								<UserNav />
+
+								<button type="button" className={css.logOutBtn}>
+									Log out
+								</button>
+							</div>
+							
+						</div>
+						
+						<div 
+							className={clsx(css.menuOverlay, { [css.close]: !isMenuOpen })} 
+							onClick={handleCloseMenu} 
+						/>
+					</header>
+				);
+};

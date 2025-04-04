@@ -36,7 +36,7 @@
     <symbol id="icon-log-in" viewBox="0 0 32 32">
       <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.667" d="M18.667 22.667 25.334 16l-6.667-6.667M25.333 16H6.666" />
     </symbol>
-    <symbol id="icon-burguer-menu" viewBox="0 0 32 32">
+    <symbol id="icon-menu" viewBox="0 0 32 32">
       <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.286" d="M4 16h24M4 8h24M12 24h16" />
     </symbol>
     <symbol id="icon-logo" viewBox="0 0 79 32">

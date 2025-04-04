@@ -1,0 +1,118 @@
+header {
+    position: relative;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--scale-dark);
+    border-radius: 15px;
+}
+
+.logo {
+    width: 42px;
+    height: 17px;
+    fill: var(--main-text-marked);
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menuBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    .menuBtnIcon {
+        width: 28px;
+        height: 28px;
+        stroke: var(--main-text-marked);
+    }
+}
+
+.sideMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--scale-dark);
+    height: 100vh;
+    padding: 40px 55px;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.closed {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+}
+
+.sideMenu > *:nth-child(2) {
+    margin: auto 0;
+}
+
+.closeMenuBtn {
+    position: absolute;
+    top: 34px;
+    right: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    .closeMenuBtnIcon {
+        width: 28px;
+        height: 28px;
+        stroke: var(--main-text-marked);
+    }
+}
+
+.logOutBtn {
+    border: 1px solid var(--inactive-btn);
+    background-color: var(--scale-dark);
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: 0.02em;
+    color: #f9f9f9;
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
+    &:hover,
+    &:focus {
+        border-color: var(--main-text-marked);
+        color: var(--scale-dark);
+        background-color: var(--main-text-marked);
+    }
+}
+
+.menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.close {
+    opacity: 0;
+    pointer-events: none;
+}

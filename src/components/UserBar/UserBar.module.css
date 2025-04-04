@@ -1,0 +1,17 @@
+.userBar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-family: var(--font-family);
+    background-color: var(--input-bg);
+    border: 1px solid var(--inactive-btn);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #f9f9f9;
+}
