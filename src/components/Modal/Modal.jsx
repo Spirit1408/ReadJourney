@@ -1,5 +1,5 @@
 import css from "./Modal.module.css";
-import sprite from "../../../public/sprite.svg";
+import sprite from "/sprite.svg";
 import { useEffect, useState, useCallback } from "react";
 
 export const Modal = ({ children, onClose }) => {

@@ -1,7 +1,7 @@
 import css from "./Header.module.css";
 import { UserBar } from "../UserBar/UserBar";
 import { UserNav } from "../UserNav/UserNav";
-import sprite from "../../../public/sprite.svg";
+import sprite from "/sprite.svg";
 import { useState, useEffect, useCallback } from "react";
 import clsx from "clsx";
 

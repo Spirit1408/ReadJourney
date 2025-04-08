@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import toast from "react-hot-toast";
 import clsx from "clsx";
-import sprite from "../../../public/sprite.svg";
+import sprite from "/sprite.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

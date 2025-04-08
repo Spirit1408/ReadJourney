@@ -6,8 +6,6 @@ import { PrivateRoute } from "./PrivateRoute";
 import { MainLayout } from "./../components/MainLayout/MainLayout";
 import RecommendedPage from "./../pages/RecommendedPage";
 import MyLibraryPage from "./../pages/MyLibraryPage";
-import { ReadingCompleted } from "./ReadingCompleted/ReadingCompleted";
-import { Modal } from "./Modal/Modal";
 
 function App() {
     return (
@@ -41,10 +39,6 @@ function App() {
                 />
             </Routes>
             <Toaster position="bottom-right" />
-
-            <Modal>
-                <ReadingCompleted />
-            </Modal>
         </>
     );
 }

@@ -1,5 +1,5 @@
 import css from "./EntryLayout.module.css";
-import sprite from "../../../public/sprite.svg";
+import sprite from "/sprite.svg";
 import heroDesktop from "../../images/hero-d.png";
 import heroDesktop2x from "../../images/hero-d@2x.png";
 import heroMobile from "../../images/hero-m.png";
