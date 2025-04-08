@@ -5,8 +5,11 @@ import * as yup from "yup";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 import sprite from "/sprite.svg";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsLoading, selectAuthError } from "../../redux/auth/selectors";
+import { login } from "../../redux/auth/operations";
 
 const schema = yup.object({
 	email: yup
@@ -21,6 +24,16 @@ const schema = yup.object({
 
 export const LoginForm = () => {
 	const [showPassword, setShowPassword] = useState(false);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const isLoading = useSelector(selectIsLoading);
+	const error = useSelector(selectAuthError);
+
+	useEffect(() => {
+		if (error) {
+			toast.error(`Login failed: ${error}`);
+		}
+	}, [error]);
 
 	const togglePasswordVisibility = () => {
 		setShowPassword(!showPassword);
@@ -37,9 +50,10 @@ export const LoginForm = () => {
 	const passwordValue = watch("password");
 
 	const onSubmit = (data) => {
-		toast.success(
-			`Login with email ${data.email} was successful!`,
-		);
+		dispatch(login(data)).unwrap().then(() => {
+			toast.success("Login successful!");
+			navigate("/recommended");
+		});
 	};
 
 	return (
