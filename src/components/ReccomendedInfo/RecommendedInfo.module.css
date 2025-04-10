@@ -1,0 +1,81 @@
+.wrapper {
+    position: relative;
+    padding: 20px;
+    background-color: var(--input-bg);
+    border-radius: 12px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--main-text-marked);
+    margin-bottom: 20px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.item {
+    display: flex;
+    gap: 12px;
+}
+
+.itemNumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--main-text-marked);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--scale-dark);
+}
+
+.itemText {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: var(--main-text);
+    span {
+        color: var(--main-text-marked);
+    }
+}
+
+.link {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: var(--main-text);
+}
+
+.button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    stroke: var(--main-text-marked);
+}

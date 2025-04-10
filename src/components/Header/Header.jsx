@@ -44,7 +44,7 @@ export const Header = () => {
     }, [isMenuOpen, handleCloseMenu]);
 
     return (
-        <header className="container">
+        <header>
             <div className={css.wrapper}>
                 <svg className={css.logo}>
                     <use href={`${sprite}#icon-logo`}></use>

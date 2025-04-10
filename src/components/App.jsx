@@ -4,12 +4,12 @@ import RegisterPage from "./../pages/RegisterPage";
 import LoginPage from "./../pages/LoginPage";
 import { PrivateRoute } from "./PrivateRoute";
 import { MainLayout } from "./../components/MainLayout/MainLayout";
-import RecommendedPage from "./../pages/RecommendedPage";
+import RecommendedPage from "./../pages/RecommendedPage/RecommendedPage";
 import MyLibraryPage from "./../pages/MyLibraryPage";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsRefreshing, selectToken } from "../redux/auth/selectors";
 import { refreshToken, refreshUser } from "../redux/auth/operations";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 function App() {
     const dispatch = useDispatch();
