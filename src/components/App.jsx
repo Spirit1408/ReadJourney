@@ -9,7 +9,7 @@ import MyLibraryPage from "./../pages/MyLibraryPage";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsRefreshing, selectToken } from "../redux/auth/selectors";
 import { refreshToken, refreshUser } from "../redux/auth/operations";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 function App() {
     const dispatch = useDispatch();
@@ -22,19 +22,9 @@ function App() {
         }
     }, [dispatch, token]);
 
-    const handleTokenRefresh = () => {
-        dispatch(refreshToken());
-    };
-
     useEffect(() => {
-        if (token) {
-            const refreshInterval = setInterval(
-                handleTokenRefresh,
-                55 * 60 * 1000
-            );
-            return () => clearInterval(refreshInterval);
-        }
-    }, [token]);
+        dispatch(refreshToken());
+    }, [dispatch]);
 
     return (
         <>

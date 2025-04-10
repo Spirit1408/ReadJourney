@@ -79,9 +79,7 @@ export const refreshToken = createAsyncThunk(
         }
 
         try {
-            const response = await axios.post("/users/current/refresh", {
-                refreshToken: persistedRefreshToken,
-            });
+            const response = await axios.get("/users/current/refresh");
             setAuthHeader(response.data.token);
             return response.data;
         } catch (error) {
