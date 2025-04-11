@@ -1,0 +1,105 @@
+.title {
+	display: block;
+	padding-left: 14px;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+	color: var(--main-text-marked);
+	margin-bottom: 8px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.inputGroup {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.inputWithPrefix {
+	display: flex;
+	width: 100%;
+	border-radius: 12px;
+	border: 1px solid var(--input-bg);
+	background-color: var(--input-bg);
+	transition: border-color 0.3s ease-in-out;
+	&:focus,
+	&:hover {
+		border: 1px solid rgba(249, 249, 249, 0.1);
+	}
+}
+
+.errorInput {
+	border: 1px solid var(--red);
+	&:focus,
+	&:hover {
+		border: 1px solid var(--red);
+	}
+}
+
+.inputPrefix {
+	padding: 14px 5px 14px 14px;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 133%;
+	letter-spacing: -0.02em;
+	color: var(--main-text);
+	background-color: transparent;
+	white-space: nowrap;
+}
+
+.inputWithPrefixField {
+	flex-grow: 1;
+	border: none;
+	padding: 14px 14px 14px 0;
+	outline: none;
+	background-color: transparent;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 133%;
+	letter-spacing: -0.02em;
+	color: var(--main-text-marked);
+}
+
+.errorMessage {
+	padding-left: 14px;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 117%;
+	letter-spacing: -0.02em;
+	color: var(--red);
+}
+
+.submitBtn {
+	align-self: flex-start;
+	border-radius: 30px;
+	border: 1px solid var(--inactive-btn);
+	padding: 10px 20px;
+	background-color: transparent;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 129%;
+	letter-spacing: 0.02em;
+	color: var(--main-text-marked);
+	cursor: pointer;
+	margin-bottom: 20px;
+	transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+		color 0.2s ease-in-out;
+	&:hover,
+	&:focus {
+		border-color: var(--main-text-marked);
+		background-color: var(--main-text-marked);
+		color: var(--scale-dark);
+	}
+}

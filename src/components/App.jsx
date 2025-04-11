@@ -5,26 +5,33 @@ import LoginPage from "./../pages/LoginPage";
 import { PrivateRoute } from "./PrivateRoute";
 import { MainLayout } from "./../components/MainLayout/MainLayout";
 import RecommendedPage from "./../pages/RecommendedPage/RecommendedPage";
-import MyLibraryPage from "./../pages/MyLibraryPage";
+import MyLibraryPage from "./../pages/MyLibraryPage/MyLibraryPage";
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsRefreshing, selectToken } from "../redux/auth/selectors";
+import {
+    selectIsRefreshing,
+    selectToken,
+    selectIsLoggedIn,
+} from "../redux/auth/selectors";
 import { refreshToken, refreshUser } from "../redux/auth/operations";
 import { useEffect } from "react";
 
 function App() {
     const dispatch = useDispatch();
     const isRefreshing = useSelector(selectIsRefreshing);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
     const token = useSelector(selectToken);
 
     useEffect(() => {
-        if (token) {
+        if (token && isLoggedIn) {
             dispatch(refreshUser());
         }
-    }, [dispatch, token]);
+    }, [dispatch, token, isLoggedIn]);
 
     useEffect(() => {
-        dispatch(refreshToken());
-    }, [dispatch]);
+        if (isLoggedIn) {
+            dispatch(refreshToken());
+        }
+    }, [dispatch, isLoggedIn]);
 
     return (
         <>

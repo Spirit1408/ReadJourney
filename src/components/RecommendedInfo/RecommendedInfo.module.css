@@ -61,6 +61,11 @@
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: var(--main-text);
+    transition: color 0.3s ease-in-out;
+    &:hover,
+    &:focus {
+        color: var(--main-text-marked);
+    }
 }
 
 .button {
