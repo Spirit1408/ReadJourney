@@ -3,6 +3,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import clsx from "clsx";
+import { useDispatch, useSelector } from "react-redux";
+import { addBook } from "../../redux/library/operations";
+import { selectError, selectIsLoading } from "../../redux/library/selectors";
+import { useEffect, useState } from "react";
+import { clearError } from "../../redux/library/slice";
+import { Modal } from "../Modal/Modal";
+import { AddBookConfirm } from "../AddBookConfirm/AddBookConfirm";
 
 const schema = yup.object({
 	title: yup.string().required("Title is required"),
@@ -16,6 +23,11 @@ const schema = yup.object({
 });
 
 export const AddBook = () => {
+	const dispatch = useDispatch();
+	const error = useSelector(selectError);
+	const isLoading = useSelector(selectIsLoading);
+	const [showConfirmModal, setShowConfirmModal] = useState(false);
+
 	const {
 		register,
 		handleSubmit,
@@ -31,9 +43,31 @@ export const AddBook = () => {
 		},
 	});
 
+	useEffect(() => {
+		return () => {
+			dispatch(clearError());
+		};
+	}, [dispatch]);
+
 	const onSubmit = (data) => {
-		console.log(data);
-		reset();
+		const bookData = {
+			...data,
+			totalPages: Number(data.totalPages),
+		};
+
+		dispatch(addBook(bookData))
+			.unwrap()
+			.then(() => {
+				reset();
+				setShowConfirmModal(true);
+			})
+			.catch((error) => {
+				console.error("Failed to add book:", error);
+			});
+	};
+
+	const handleCloseModal = () => {
+		setShowConfirmModal(false);
 	};
 
 	return (
@@ -96,10 +130,18 @@ export const AddBook = () => {
 					</div>
 				</div>
 
-				<button type="submit" className={css.submitBtn}>
+				{error && <p className={css.errorMessage}>{error}</p>}
+
+				<button type="submit" className={css.submitBtn} disabled={isLoading}>
 					Add book
 				</button>
 			</form>
+
+			{showConfirmModal && (
+				<Modal onClose={handleCloseModal}>
+					<AddBookConfirm />
+				</Modal>
+			)}
 		</>
 	);
 };

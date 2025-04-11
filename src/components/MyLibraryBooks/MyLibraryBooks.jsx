@@ -3,18 +3,30 @@ import booksD from "../../images/books-d.png";
 import booksD2x from "../../images/books-d@2x.png";
 import booksM from "../../images/books-m.png";
 import booksM2x from "../../images/books-m@2x.png";
+import coverD from "../../images/cover-d.png";
+import coverD2x from "../../images/cover-d@2x.png";
+import coverM from "../../images/cover-m.png";
+import coverM2x from "../../images/cover-m@2x.png";
 import sprite from "/sprite.svg";
 import { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
-
-import testbook from "/testbook.png";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchOwnBooks, removeBook } from "../../redux/library/operations";
+import {
+	selectFilteredBooks,
+	selectIsLoading,
+} from "../../redux/library/selectors";
+import { setCurrentStatus } from "../../redux/library/slice";
+import toast from "react-hot-toast";
 
 export const MyLibraryBooks = () => {
 	const [isSelectOpen, setIsSelectOpen] = useState(false);
 	const [selectedOption, setSelectedOption] = useState("All books");
 	const dropdownRef = useRef(null);
+	const dispatch = useDispatch();
 
-	const books = [1];
+	const books = useSelector(selectFilteredBooks);
+	const isLoading = useSelector(selectIsLoading);
 
 	const options = [
 		{ value: "unread", label: "Unread" },
@@ -23,6 +35,10 @@ export const MyLibraryBooks = () => {
 		{ value: "all", label: "All books" },
 	];
 
+	useEffect(() => {
+		dispatch(fetchOwnBooks());
+	}, [dispatch]);
+
 	const toggleSelect = () => {
 		setIsSelectOpen(!isSelectOpen);
 	};
@@ -30,6 +46,13 @@ export const MyLibraryBooks = () => {
 	const handleOptionClick = (option) => {
 		setSelectedOption(option.label);
 		setIsSelectOpen(false);
+		dispatch(setCurrentStatus(option.value));
+		dispatch(fetchOwnBooks(option.value));
+	};
+
+	const handleRemoveBook = (bookId) => {
+		dispatch(removeBook(bookId));
+		toast.success("Book removed from your library");
 	};
 
 	useEffect(() => {
@@ -77,7 +100,9 @@ export const MyLibraryBooks = () => {
 				</div>
 			</div>
 
-			{books.length === 0 ? (
+			{isLoading ? (
+				<p className={css.loading}>Loading books...</p>
+			) : books.length === 0 ? (
 				<div className={css.infoWrapper}>
 					<div className={css.iconWrapper}>
 						<picture>
@@ -100,62 +125,44 @@ export const MyLibraryBooks = () => {
 				</div>
 			) : (
 				<ul className={css.books}>
-					<li className={css.book}>
-						<img src={testbook} alt="" className={css.bookCover} />
+					{books.map((book) => (
+						<li key={book._id} className={css.book}>
+							{book.imageUrl?<img
+								src={book.imageUrl}
+								alt={`Cover of ${book.title}`}
+								className={css.bookCover}
+							/>: <div className={css.bookCoverDefault}>
+								<picture>
+									<source
+										media="(min-width: 1440px)"
+										srcSet={`${coverD} 1x, ${coverD2x} 2x`}
+									/>
+									<source
+										media="(min-width: 375px)"
+										srcSet={`${coverM} 1x, ${coverM2x} 2x`}
+									/>
+									<img src={booksM} alt="books icon" loading="lazy" className={css.bookCoverDefaultIcon}/>
+								</picture>
+								</div>}
 
-						<div className={css.bookInfoWrapper}>
-							<div className={css.bookInfo}>
-								<h4 className={css.bookTitle}>
-									I See You Are Interested In The Dark
-								</h4>
-								<p className={css.bookAuthor}>Hilarion Pavlyuk</p>
+							<div className={css.bookInfoWrapper}>
+								<div className={css.bookInfo}>
+									<h4 className={css.bookTitle}>{book.title}</h4>
+									<p className={css.bookAuthor}>{book.author}</p>
+								</div>
+
+								<button
+									type="button"
+									className={css.deleteBtn}
+									onClick={() => handleRemoveBook(book._id)}
+								>
+									<svg className={css.deleteBtnIcon}>
+										<use href={`${sprite}#icon-trash`} />
+									</svg>
+								</button>
 							</div>
-
-							<button type="button" className={css.deleteBtn}>
-								<svg className={css.deleteBtnIcon}>
-									<use href={`${sprite}#icon-trash`} />
-								</svg>
-							</button>
-						</div>
-					</li>
-
-					<li className={css.book}>
-						<img src={testbook} alt="" className={css.bookCover} />
-
-						<div className={css.bookInfoWrapper}>
-							<div className={css.bookInfo}>
-								<h4 className={css.bookTitle}>
-									I See You Are Interested In The Dark
-								</h4>
-								<p className={css.bookAuthor}>Hilarion Pavlyuk</p>
-							</div>
-
-							<button type="button" className={css.deleteBtn}>
-								<svg className={css.deleteBtnIcon}>
-									<use href={`${sprite}#icon-trash`} />
-								</svg>
-							</button>
-						</div>
-					</li>
-
-					<li className={css.book}>
-						<img src={testbook} alt="" className={css.bookCover} />
-
-						<div className={css.bookInfoWrapper}>
-							<div className={css.bookInfo}>
-								<h4 className={css.bookTitle}>
-									I See You Are Interested In The Dark
-								</h4>
-								<p className={css.bookAuthor}>Hilarion Pavlyuk</p>
-							</div>
-
-							<button type="button" className={css.deleteBtn}>
-								<svg className={css.deleteBtnIcon}>
-									<use href={`${sprite}#icon-trash`} />
-								</svg>
-							</button>
-						</div>
-					</li>
+						</li>
+					))}
 				</ul>
 			)}
 		</div>

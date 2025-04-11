@@ -133,8 +133,28 @@
 }
 
 .bookCover {
+	object-fit: cover;
+	height: 208px;
+	width: 100%;
 	border-radius: 8px;
 	margin-bottom: 8px;
+}
+
+.bookCoverDefault {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 208px;
+	border-radius: 8px;
+	margin-bottom: 8px;
+	background-color: var(--input-bg);
+}
+
+.bookCoverDefaultIcon {
+	object-fit: contain;
+	width: 111px;
+	height: 72px;
 }
 
 .bookInfoWrapper {

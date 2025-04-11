@@ -57,4 +57,10 @@
         color: var(--scale-dark);
         background-color: var(--main-text-marked);
     }
+    &:disabled {
+        border-color: rgba(249, 249, 249, 0.2);
+        color: var(--main-text);
+        cursor: not-allowed;
+        pointer-events: none;
+    }
 }
