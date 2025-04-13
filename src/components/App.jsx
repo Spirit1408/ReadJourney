@@ -6,6 +6,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { MainLayout } from "./../components/MainLayout/MainLayout";
 import RecommendedPage from "./../pages/RecommendedPage/RecommendedPage";
 import MyLibraryPage from "./../pages/MyLibraryPage/MyLibraryPage";
+import ReadingPage from "../pages/ReadingPage/ReadingPage";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	selectIsRefreshing,
@@ -45,6 +46,7 @@ function App() {
 						<Route path="/" element={<Navigate to="/recommended" />} />
 						<Route path="/recommended" element={<RecommendedPage />} />
 						<Route path="/library" element={<MyLibraryPage />} />
+						<Route path="/reading" element={<ReadingPage />} />
 					</Route>
 					<Route path="*" element={<h1>404</h1>} />
 				</Routes>

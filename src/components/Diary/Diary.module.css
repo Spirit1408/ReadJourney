@@ -1,0 +1,193 @@
+.wrapperContainer {
+	position: relative;
+	width: 100%;
+}
+
+.wrapper {
+	position: relative;
+	padding: 16px;
+	background-color: var(--input-bg);
+	border-radius: 12px;
+	max-height: 211px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	scrollbar-width: none; 
+	-ms-overflow-style: none;
+}
+
+.wrapper::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollbarTrack {
+	position: absolute;
+	top: 16px;
+	right: -12px; 
+	width: 5px; 
+	height: calc(100% - 32px); 
+	background-color: transparent; 
+	border-radius: 15px;
+	pointer-events: none;
+}
+
+.scrollbar {
+	width: 100%;
+	background-color: var(--input-bg);
+	border-radius: 15px;
+	position: absolute;
+	top: 0;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 17px;
+}
+
+.timeStamp {
+	display: flex;
+	justify-content: space-between;
+}
+
+.leftBlock {
+	display: flex;
+	gap: 9px;
+	align-items: flex-start;
+}
+
+.outerSquare {
+	position: relative;
+	width: 16px;
+	height: 16px;
+	border-radius: 4px;
+	background-color: var(--main-text);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.outerSquare::after {
+	position: absolute;
+	content: "";
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	height: 90px;
+	background-color: var(--scale-dark);
+}
+
+.list li:last-child .outerSquare::after {
+	display: none;
+}
+
+.innerSquare {
+	width: 8px;
+	height: 8px;
+	border-radius: 2px;
+	background-color: var(--scale-dark);
+}
+
+.squareActive {
+	background-color: var(--main-text-marked);
+
+	.innerSquare {
+		background-color: var(--main-bg);
+	}
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+}
+
+.date {
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 133%;
+	letter-spacing: 0.02em;
+	color: var(--main-text);
+	margin-bottom: 17px;
+}
+
+.dateActive {
+	color: var(--main-text-marked);
+}
+
+.percentage {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 129%;
+	letter-spacing: -0.02em;
+	color: var(--main-text-marked);
+	margin-bottom: 4px;
+}
+
+.duration {
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+	color: var(--main-text);
+}
+
+.rightBlockWrapper {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+}
+
+.rightBlock {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.pages {
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 133%;
+	letter-spacing: -0.02em;
+	text-align: center;
+	margin-bottom: 16px;
+	text-align: center;
+}
+
+.graph {
+	width: 43px;
+	height: 17px;
+	margin-bottom: 7px;
+}
+
+.speed {
+	font-weight: 500;
+	max-width: 43px;
+	font-size: 10px;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+	text-align: center;
+	color: var(--main-text);
+}
+
+.deleteBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 14px;
+	height: 14px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.icon {
+	width: 14px;
+	height: 14px;
+	stroke: var(--main-text);
+	transition: stroke 0.2s ease-in-out;
+}
+
+.deleteBtn:hover .icon,
+.deleteBtn:focus .icon {
+	stroke: var(--main-text-marked);
+}

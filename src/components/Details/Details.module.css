@@ -1,0 +1,46 @@
+.bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--main-text-marked);
+}
+
+.btnGroup {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.button {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    stroke: var(--main-text);
+    transition: stroke 0.2s ease-in-out;
+}
+
+.button:hover .icon, .button:focus .icon {
+    stroke: var(--main-text-marked);
+}
+
+.active .icon {
+    stroke: var(--main-text-marked);
+}
