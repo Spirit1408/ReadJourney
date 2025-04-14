@@ -13,6 +13,7 @@ import { fetchRecommendedBooks } from "../../redux/recommended/operations";
 import { useEffect, useState } from "react";
 import { Modal } from "../Modal/Modal";
 import { AddBookModal } from "../AddBookModal/AddBookModal";
+import { Loader } from "../Loader/Loader";
 
 export const RecommendedBooks = () => {
 	const dispatch = useDispatch();
@@ -79,7 +80,7 @@ export const RecommendedBooks = () => {
 			</div>
 
 			{isLoading ? (
-				<p>Loading...</p>
+				<Loader />
 			) : (
 				<ul className={css.books}>
 					{books.length > 0 ? (

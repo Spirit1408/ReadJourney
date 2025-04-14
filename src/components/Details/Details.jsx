@@ -3,9 +3,10 @@ import css from "./Details.module.css";
 import sprite from "/sprite.svg";
 import { Diary } from "./../Diary/Diary";
 import { Statistics } from "./../Statistics/Statistics";
+import { useState } from "react";
 
 export const Details = () => {
-    const isDiaryOpen = false;
+    const [isDiaryOpen, setIsDiaryOpen] = useState(true);
 
     return (
         <>
@@ -20,7 +21,7 @@ export const Details = () => {
                             type="button"
                             className={clsx(css.button, {
                                 [css.active]: isDiaryOpen,
-                            })}>
+                            })} onClick={() => setIsDiaryOpen(true)}>
                             <svg className={css.icon}>
                                 <use href={`${sprite}#icon-clock`} />
                             </svg>
@@ -31,7 +32,7 @@ export const Details = () => {
                             type="button"
                             className={clsx(css.button, {
                                 [css.active]: !isDiaryOpen,
-                            })}>
+                            })} onClick={() => setIsDiaryOpen(false)}>
                             <svg className={css.icon}>
                                 <use href={`${sprite}#icon-graph`} />
                             </svg>

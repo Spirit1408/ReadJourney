@@ -2,6 +2,7 @@ import clsx from "clsx";
 import css from "./Diary.module.css";
 import sprite from "/sprite.svg";
 import { useEffect, useRef, useState } from "react";
+import SpeedGraph from "../SpeedGraph/SpeedGraph";
 
 export const Diary = () => {
 	const wrapperRef = useRef(null);
@@ -74,7 +75,9 @@ export const Diary = () => {
 						<div className={css.rightBlockWrapper}>
 							<div className={css.rightBlock}>
 								<p className={css.pages}>42 pages</p>
-								<img src="./testgraph.png" alt="" className={css.graph} />
+								<div className={css.graph}>
+									<SpeedGraph speed={45} />
+								</div>
 								<p className={css.speed}>45 pages per hour</p>
 							</div>
 
@@ -94,16 +97,18 @@ export const Diary = () => {
 
 							<div className={css.info}>
 								<p className={css.date}>19.10.2023</p>
-								<p className={css.percentage}>5.4%</p>
-								<p className={css.duration}>21 minutes</p>
+								<p className={css.percentage}>10.5%</p>
+								<p className={css.duration}>40 minutes</p>
 							</div>
 						</div>
 
 						<div className={css.rightBlockWrapper}>
 							<div className={css.rightBlock}>
-								<p className={css.pages}>38 pages</p>
-								<img src="./testgraph.png" alt="" className={css.graph} />
-								<p className={css.speed}>31 pages per hour</p>
+								<p className={css.pages}>87 pages</p>
+								<div className={css.graph}>
+									<SpeedGraph speed={45} />
+								</div>
+								<p className={css.speed}>50 pages per hour</p>
 							</div>
 
 							<button type="button" className={css.deleteBtn}>
@@ -130,7 +135,9 @@ export const Diary = () => {
 						<div className={css.rightBlockWrapper}>
 							<div className={css.rightBlock}>
 								<p className={css.pages}>42 pages</p>
-								<img src="./testgraph.png" alt="" className={css.graph} />
+								<div className={css.graph}>
+									<SpeedGraph speed={45} />
+								</div>
 								<p className={css.speed}>45 pages per hour</p>
 							</div>
 

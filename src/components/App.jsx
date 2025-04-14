@@ -7,6 +7,7 @@ import { MainLayout } from "./../components/MainLayout/MainLayout";
 import RecommendedPage from "./../pages/RecommendedPage/RecommendedPage";
 import MyLibraryPage from "./../pages/MyLibraryPage/MyLibraryPage";
 import ReadingPage from "../pages/ReadingPage/ReadingPage";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	selectIsRefreshing,
@@ -15,6 +16,7 @@ import {
 } from "../redux/auth/selectors";
 import { refreshUser, initializeTokenRefresh } from "../redux/auth/operations";
 import { useEffect } from "react";
+import { Loader } from "./Loader/Loader";
 
 function App() {
 	const dispatch = useDispatch();
@@ -37,7 +39,7 @@ function App() {
 	return (
 		<>
 			{isRefreshing ? (
-				<div>Loading...</div>
+				<Loader />
 			) : (
 				<Routes>
 					<Route path="/register" element={<RegisterPage />} />
@@ -48,7 +50,7 @@ function App() {
 						<Route path="/library" element={<MyLibraryPage />} />
 						<Route path="/reading" element={<ReadingPage />} />
 					</Route>
-					<Route path="*" element={<h1>404</h1>} />
+					<Route path="*" element={<NotFoundPage />} />
 				</Routes>
 			)}
 			<Toaster position="bottom-right" />

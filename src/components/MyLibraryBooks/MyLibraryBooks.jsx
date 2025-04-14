@@ -18,6 +18,7 @@ import {
 } from "../../redux/library/selectors";
 import { setCurrentStatus } from "../../redux/library/slice";
 import toast from "react-hot-toast";
+import { Loader } from "../Loader/Loader";
 
 export const MyLibraryBooks = () => {
 	const [isSelectOpen, setIsSelectOpen] = useState(false);
@@ -101,7 +102,7 @@ export const MyLibraryBooks = () => {
 			</div>
 
 			{isLoading ? (
-				<p className={css.loading}>Loading books...</p>
+				<Loader />
 			) : books.length === 0 ? (
 				<div className={css.infoWrapper}>
 					<div className={css.iconWrapper}>
@@ -127,23 +128,32 @@ export const MyLibraryBooks = () => {
 				<ul className={css.books}>
 					{books.map((book) => (
 						<li key={book._id} className={css.book}>
-							{book.imageUrl?<img
-								src={book.imageUrl}
-								alt={`Cover of ${book.title}`}
-								className={css.bookCover}
-							/>: <div className={css.bookCoverDefault}>
-								<picture>
-									<source
-										media="(min-width: 1440px)"
-										srcSet={`${coverD} 1x, ${coverD2x} 2x`}
-									/>
-									<source
-										media="(min-width: 375px)"
-										srcSet={`${coverM} 1x, ${coverM2x} 2x`}
-									/>
-									<img src={booksM} alt="books icon" loading="lazy" className={css.bookCoverDefaultIcon}/>
-								</picture>
-								</div>}
+							{book.imageUrl ? (
+								<img
+									src={book.imageUrl}
+									alt={`Cover of ${book.title}`}
+									className={css.bookCover}
+								/>
+							) : (
+								<div className={css.bookCoverDefault}>
+									<picture>
+										<source
+											media="(min-width: 1440px)"
+											srcSet={`${coverD} 1x, ${coverD2x} 2x`}
+										/>
+										<source
+											media="(min-width: 375px)"
+											srcSet={`${coverM} 1x, ${coverM2x} 2x`}
+										/>
+										<img
+											src={booksM}
+											alt="books icon"
+											loading="lazy"
+											className={css.bookCoverDefaultIcon}
+										/>
+									</picture>
+								</div>
+							)}
 
 							<div className={css.bookInfoWrapper}>
 								<div className={css.bookInfo}>
