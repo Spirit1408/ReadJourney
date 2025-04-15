@@ -1,11 +1,36 @@
 import css from "./Statistics.module.css";
+import { useSelector } from "react-redux";
+import {
+	selectBook,
+	selectReadingProgress,
+} from "../../redux/reading/selectors";
 
 export const Statistics = () => {
-	const testPerc = 17.92;
+	const book = useSelector(selectBook);
+	const readingProgress = useSelector(selectReadingProgress);
+
+	const completedSessions = readingProgress.filter(
+		(session) => session.status === "inactive",
+	);
+
+	const sortedSessions = [...completedSessions].sort(
+		(a, b) => new Date(b.finishReading) - new Date(a.finishReading),
+	);
+
+	const lastSession = sortedSessions[0];
+
+	let percentage = 0;
+	let pagesRead = 0;
+
+	if (book && book.totalPages && lastSession) {
+		percentage = ((lastSession.finishPage / book.totalPages) * 100).toFixed(2);
+		pagesRead = lastSession.finishPage;
+	}
+
 	const radius = 50;
 	const circumference = 2 * Math.PI * radius;
 	const strokeDasharray = circumference;
-	const strokeDashoffset = circumference - (testPerc / 100) * circumference;
+	const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
 	return (
 		<div className={css.wrapper}>
@@ -39,8 +64,8 @@ export const Statistics = () => {
 				<span className={css.legend} />
 
 				<div className={css.infoData}>
-					<p className={css.percentage}>{testPerc}%</p>
-					<p className={css.pages}>171 pages read</p>
+					<p className={css.percentage}>{percentage}%</p>
+					<p className={css.pages}>{pagesRead} pages read</p>
 				</div>
 			</div>
 		</div>

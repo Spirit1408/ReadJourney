@@ -1,38 +1,58 @@
 import clsx from "clsx";
 import css from "./MyBook.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import {
+	selectBook,
+	selectTimeLeftToRead,
+	selectHasActiveSession,
+} from "../../redux/reading/selectors";
+import { Loader } from "../Loader/Loader";
+import { useEffect } from "react";
+import { updateActiveSessionStatus } from "../../../src/redux/reading/slice";
 
 export const MyBook = () => {
-    const isReading = false;
+	const dispatch = useDispatch();
+	const book = useSelector(selectBook);
+	const hasActiveSession = useSelector(selectHasActiveSession);
+	const timeLeftToRead = useSelector(selectTimeLeftToRead);
 
-    return (
-        <div className={css.wrapper}>
-            <div className={css.bar}>
-                <h2 className={css.title}>My reading</h2>
+	useEffect(() => {
+		if (book) {
+			dispatch(updateActiveSessionStatus());
+		}
+	}, [book, dispatch]);
 
-                <p className={css.timeStat}>
-                    {isReading && "6 hours and 23 minutes left"}
-                </p>
-            </div>
+	if (!book) {
+		return (
+			<div className={css.wrapper}>
+				<Loader />
+			</div>
+		);
+	}
 
-            <div className={css.book}>
-                <img
-                    src="./testreading.png"
-                    alt="book"
-                    className={css.bookCover}
-                />
+	return (
+		<div className={css.wrapper}>
+			<div className={css.bar}>
+				<h2 className={css.title}>My reading</h2>
 
-                <h3 className={css.bookTitle}>
-                    I See You Are Interested In The Dark
-                </h3>
+				<p className={css.timeStat}>
+					{hasActiveSession && timeLeftToRead && `${timeLeftToRead}`}
+				</p>
+			</div>
 
-                <p className={css.bookAuthor}>Hilarion Pavlyuk</p>
-            </div>
+			<div className={css.book}>
+				<img src={book.imageUrl} alt={book.title} className={css.bookCover} />
 
-            <div className={css.progress}>
-                <div
-                    className={clsx(css.indicator, { [css.active]: isReading })}
-                />
-            </div>
-        </div>
-    );
+				<h3 className={css.bookTitle}>{book.title}</h3>
+
+				<p className={css.bookAuthor}>{book.author}</p>
+			</div>
+
+			<div className={css.progress}>
+				<div
+					className={clsx(css.indicator, { [css.active]: hasActiveSession })}
+				/>
+			</div>
+		</div>
+	);
 };

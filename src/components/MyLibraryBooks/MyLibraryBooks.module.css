@@ -130,6 +130,7 @@
 
 .book {
 	width: calc((100% - 10px) / 2);
+	cursor: pointer;
 }
 
 .bookCover {

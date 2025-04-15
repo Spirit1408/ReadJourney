@@ -19,10 +19,14 @@ import {
 import { setCurrentStatus } from "../../redux/library/slice";
 import toast from "react-hot-toast";
 import { Loader } from "../Loader/Loader";
+import { Modal } from "../Modal/Modal";
+import { AddReadingModal } from "../AddReadingModal/AddReadingModal";
 
 export const MyLibraryBooks = () => {
 	const [isSelectOpen, setIsSelectOpen] = useState(false);
 	const [selectedOption, setSelectedOption] = useState("All books");
+	const [selectedBook, setSelectedBook] = useState(null);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const dropdownRef = useRef(null);
 	const dispatch = useDispatch();
 
@@ -54,6 +58,16 @@ export const MyLibraryBooks = () => {
 	const handleRemoveBook = (bookId) => {
 		dispatch(removeBook(bookId));
 		toast.success("Book removed from your library");
+	};
+
+	const handleBookClick = (book) => {
+		setSelectedBook(book);
+		setIsModalOpen(true);
+	};
+
+	const handleCloseModal = () => {
+		setIsModalOpen(false);
+		setSelectedBook(null);
 	};
 
 	useEffect(() => {
@@ -127,7 +141,11 @@ export const MyLibraryBooks = () => {
 			) : (
 				<ul className={css.books}>
 					{books.map((book) => (
-						<li key={book._id} className={css.book}>
+						<li
+							key={book._id}
+							className={css.book}
+							onClick={() => handleBookClick(book)}
+						>
 							{book.imageUrl ? (
 								<img
 									src={book.imageUrl}
@@ -164,7 +182,10 @@ export const MyLibraryBooks = () => {
 								<button
 									type="button"
 									className={css.deleteBtn}
-									onClick={() => handleRemoveBook(book._id)}
+									onClick={(e) => {
+										e.stopPropagation();
+										handleRemoveBook(book._id);
+									}}
 								>
 									<svg className={css.deleteBtnIcon}>
 										<use href={`${sprite}#icon-trash`} />
@@ -174,6 +195,12 @@ export const MyLibraryBooks = () => {
 						</li>
 					))}
 				</ul>
+			)}
+
+			{isModalOpen && selectedBook && (
+				<Modal onClose={handleCloseModal}>
+					<AddReadingModal book={selectedBook} />
+				</Modal>
 			)}
 		</div>
 	);
