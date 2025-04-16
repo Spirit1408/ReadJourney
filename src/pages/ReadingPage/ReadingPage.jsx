@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBookById } from "../../redux/reading/operations";
 import { selectBookId } from "../../redux/reading/selectors";
 import { Navigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function ReadingPage() {
 	const dispatch = useDispatch();
@@ -21,10 +22,10 @@ export default function ReadingPage() {
 			dispatch(fetchBookById(bookId))
 				.unwrap()
 				.then((data) => {
-					console.log("Book data:", data);
+					toast.success("Book data loaded successfully");
 				})
 				.catch((error) => {
-					console.error("Error fetching book data:", error);
+					toast.error("Error fetching book data:");
 				});
 		}
 	}, [dispatch, bookId]);

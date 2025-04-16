@@ -36,7 +36,7 @@ export const MyBook = () => {
 				<h2 className={css.title}>My reading</h2>
 
 				<p className={css.timeStat}>
-					{hasActiveSession && timeLeftToRead && `${timeLeftToRead}`}
+					{timeLeftToRead && `${timeLeftToRead.hours} hours and ${timeLeftToRead.minutes} minutes left`}
 				</p>
 			</div>
 
