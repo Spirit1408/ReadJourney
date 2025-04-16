@@ -64,3 +64,22 @@ body {
     padding: 20px;
     background-color: var(--main-bg);
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--input-bg) inset !important;
+    -webkit-text-fill-color: var(--main-text-marked) !important;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: var(--main-text-marked);
+    border-radius: 12px !important;
+}
+
+@-moz-document url-prefix() {
+    input:-moz-autofill,
+    input:-moz-autofill:focus {
+        background-color: var(--input-bg) !important;
+        color: var(--main-text-marked) !important;
+    }
+}
