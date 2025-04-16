@@ -27,7 +27,7 @@ export const EntryLayout = ({ children }) => {
                         srcSet={`${heroDesktop} 1x, ${heroDesktop2x} 2x`}
                     />
                     <source
-                        media="(min-width: 375px)"
+                        media="(min-width: 320px)"
                         srcSet={`${heroMobile} 1x, ${heroMobile2x} 2x`}
                     />
                     <img

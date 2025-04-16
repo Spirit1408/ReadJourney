@@ -154,7 +154,9 @@
 .submitBtn {
     border-radius: 30px;
     border: 1px solid var(--main-text-marked);
-    padding: 12px 29px;
+    padding: 12px;
+    flex-grow: 1;
+    max-width: 140px;
     background-color: var(--main-text-marked);
     font-weight: 700;
     font-size: 14px;
@@ -180,7 +182,7 @@
     text-decoration: underline;
     color: var(--main-text);
     transition: color 0.2s ease-in-out;
-    text-wrap: nowrap;
+    text-wrap: wrap;
     &:hover,
     &:focus {
         color: var(--main-text-marked);

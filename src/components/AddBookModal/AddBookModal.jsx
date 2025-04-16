@@ -2,20 +2,19 @@ import css from "./AddBookModal.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addBookById } from "../../redux/library/operations";
 import { selectIsLoading } from "../../redux/library/selectors";
-import { useState } from "react";
 import toast from "react-hot-toast";
 
-export const AddBookModal = ({ book }) => {
+export const AddBookModal = ({ book, onBookAdded }) => {
 	const dispatch = useDispatch();
 	const isLoading = useSelector(selectIsLoading);
-	const [isAdded, setIsAdded] = useState(false);
 
 	const handleAddToLibrary = () => {
 		dispatch(addBookById(book._id))
 			.unwrap()
 			.then(() => {
-				setIsAdded(true);
-				toast.success(`"${book.title}" added to your library`);
+				if (onBookAdded) {
+					onBookAdded();
+				}
 			})
 			.catch((error) => {
 				toast.error(error || "Failed to add book");
@@ -40,9 +39,9 @@ export const AddBookModal = ({ book }) => {
 				type="button"
 				className={css.button}
 				onClick={handleAddToLibrary}
-				disabled={isLoading || isAdded}
+				disabled={isLoading}
 			>
-				{isLoading ? "Adding..." : isAdded ? "Added" : "Add to library"}
+				Add to library
 			</button>
 		</div>
 	);

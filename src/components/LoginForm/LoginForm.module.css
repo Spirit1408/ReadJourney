@@ -154,7 +154,9 @@
 .submitBtn {
     border-radius: 30px;
     border: 1px solid var(--main-text-marked);
-    padding: 12px 45px;
+    flex-grow: 1;
+    max-width: 131px;
+    padding: 12px;
     background-color: var(--main-text-marked);
     font-weight: 700;
     font-size: 14px;

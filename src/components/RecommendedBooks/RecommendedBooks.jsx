@@ -8,21 +8,25 @@ import {
 	selectTotalPages,
 	selectCurrentPage,
 } from "../../redux/recommended/selectors";
+import { selectIsLoading as selectLibraryIsLoading } from "../../redux/library/selectors";
 import { setPage } from "../../redux/recommended/slice";
 import { fetchRecommendedBooks } from "../../redux/recommended/operations";
 import { useEffect, useState } from "react";
 import { Modal } from "../Modal/Modal";
 import { AddBookModal } from "../AddBookModal/AddBookModal";
 import { Loader } from "../Loader/Loader";
+import { AddBookConfirm } from "../AddBookConfirm/AddBookConfirm";
 
 export const RecommendedBooks = () => {
 	const dispatch = useDispatch();
 	const books = useSelector(selectRecommendedBooks);
 	const isLoading = useSelector(selectIsLoading);
+	const isLibraryLoading = useSelector(selectLibraryIsLoading);
 	const totalPages = useSelector(selectTotalPages);
 	const currentPage = useSelector(selectCurrentPage);
 	const [selectedBook, setSelectedBook] = useState(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isBookAdded, setIsBookAdded] = useState(false);
 
 	useEffect(() => {
 		dispatch(fetchRecommendedBooks());
@@ -43,11 +47,17 @@ export const RecommendedBooks = () => {
 	const handleBookClick = (book) => {
 		setSelectedBook(book);
 		setIsModalOpen(true);
+		setIsBookAdded(false);
 	};
 
 	const handleCloseModal = () => {
 		setIsModalOpen(false);
 		setSelectedBook(null);
+		setIsBookAdded(false);
+	};
+
+	const handleBookAdded = () => {
+		setIsBookAdded(true);
 	};
 
 	return (
@@ -109,7 +119,13 @@ export const RecommendedBooks = () => {
 
 			{isModalOpen && (
 				<Modal onClose={handleCloseModal}>
-					<AddBookModal book={selectedBook} />
+					{isLibraryLoading ? (
+						<Loader />
+					) : isBookAdded ? (
+						<AddBookConfirm />
+					) : (
+						<AddBookModal book={selectedBook} onBookAdded={handleBookAdded} />
+					)}
 				</Modal>
 			)}
 		</div>

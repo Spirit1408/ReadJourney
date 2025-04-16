@@ -9,13 +9,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    
     border: 1px solid rgba(104, 104, 104, 0.2);
     background-color: var(--scale-dark);
     border-radius: 12px;
