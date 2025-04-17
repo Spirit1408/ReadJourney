@@ -54,8 +54,6 @@ ul {
 
 body {
     color: var(--main-text);
-    font-size: 16px;
-    line-height: 1.5;
     max-width: 375px;
     margin: 0 auto;
 }
@@ -66,7 +64,7 @@ body {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px var(--input-bg) inset !important;
@@ -81,5 +79,15 @@ input:-webkit-autofill:active {
     input:-moz-autofill:focus {
         background-color: var(--input-bg) !important;
         color: var(--main-text-marked) !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 32px;
+    }
+
+    body {
+        max-width: 768px;
     }
 }

@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import css from "./Details.module.css";
+import clsx from "clsx";
 import sprite from "/sprite.svg";
 import { Diary } from "./../Diary/Diary";
 import { Statistics } from "./../Statistics/Statistics";
@@ -9,7 +9,7 @@ export const Details = () => {
     const [isDiaryOpen, setIsDiaryOpen] = useState(true);
 
     return (
-        <>
+        <div className={css.wrapper}>
             <div className={css.bar}>
                 <h2 className={css.title}>
                     {isDiaryOpen ? "Diary" : "Statistics"}
@@ -42,6 +42,6 @@ export const Details = () => {
             </div>
 
             {isDiaryOpen ? <Diary /> : <Statistics />}
-        </>
+        </div>
     );
 };

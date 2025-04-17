@@ -32,3 +32,25 @@
         background-color: var(--blue);
     }
 }
+
+@media (min-width: 768px) {
+    .navList {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -80%);
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    .navItem {
+        font-size: 16px;
+        line-height: 112%;
+    }
+
+    .active {
+        &::after {
+            bottom: -12px;
+        }
+    }
+}

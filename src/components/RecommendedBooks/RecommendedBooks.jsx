@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import css from "./RecommendedBooks.module.css";
+import clsx from "clsx";
 import sprite from "/sprite.svg";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -7,9 +7,10 @@ import {
 	selectIsLoading,
 	selectTotalPages,
 	selectCurrentPage,
+	selectPerPage,
 } from "../../redux/recommended/selectors";
 import { selectIsLoading as selectLibraryIsLoading } from "../../redux/library/selectors";
-import { setPage } from "../../redux/recommended/slice";
+import { setPage, setPerPage } from "../../redux/recommended/slice";
 import { fetchRecommendedBooks } from "../../redux/recommended/operations";
 import { useEffect, useState } from "react";
 import { Modal } from "../Modal/Modal";
@@ -24,13 +25,40 @@ export const RecommendedBooks = () => {
 	const isLibraryLoading = useSelector(selectLibraryIsLoading);
 	const totalPages = useSelector(selectTotalPages);
 	const currentPage = useSelector(selectCurrentPage);
+	const perPage = useSelector(selectPerPage);
 	const [selectedBook, setSelectedBook] = useState(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isBookAdded, setIsBookAdded] = useState(false);
 
+	const checkScreenSize = () => {
+		const largeScreen = window.innerWidth >= 768;
+
+		const newPerPage = largeScreen ? 8 : 2;
+		if (newPerPage !== perPage) {
+			dispatch(setPerPage(newPerPage));
+		}
+	};
+
+	const handleResize = () => {
+		clearTimeout(window.resizeTimer);
+		window.resizeTimer = setTimeout(() => {
+			checkScreenSize();
+		}, 250);
+	};
+
+	useEffect(() => {
+		checkScreenSize();
+		window.addEventListener("resize", handleResize);
+
+		return () => {
+			window.removeEventListener("resize", handleResize);
+			clearTimeout(window.resizeTimer);
+		};
+	}, [checkScreenSize]);
+
 	useEffect(() => {
 		dispatch(fetchRecommendedBooks());
-	}, [dispatch, currentPage]);
+	}, [dispatch, currentPage, perPage]);
 
 	const handlePrevPage = () => {
 		if (currentPage > 1) {
@@ -117,16 +145,22 @@ export const RecommendedBooks = () => {
 				</ul>
 			)}
 
-			{isModalOpen && (
+			{isModalOpen && !isLibraryLoading && (
 				<Modal onClose={handleCloseModal}>
-					{isLibraryLoading ? (
-						<Loader />
-					) : isBookAdded ? (
+					{isBookAdded ? (
 						<AddBookConfirm />
 					) : (
 						<AddBookModal book={selectedBook} onBookAdded={handleBookAdded} />
 					)}
 				</Modal>
+			)}
+
+			{isModalOpen && isLibraryLoading && (
+				<div className={css.loaderContainer}>
+					<div className={css.loader}>
+						<Loader />
+					</div>
+				</div>
 			)}
 		</div>
 	);

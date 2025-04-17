@@ -84,3 +84,28 @@
     height: 24px;
     stroke: var(--main-text-marked);
 }
+
+@media (min-width: 768px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+
+    .list {
+        margin-bottom: 26px;
+    }
+
+    .itemNumber {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+
+    .itemText {
+        max-width: 197px;
+    }
+}

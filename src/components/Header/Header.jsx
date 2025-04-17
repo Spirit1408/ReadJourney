@@ -50,19 +50,6 @@ export const Header = () => {
                     <use href={`${sprite}#icon-logo`}></use>
                 </svg>
 
-                <div className={css.info}>
-                    <UserBar />
-
-                    <button
-                        type="button"
-                        className={css.menuBtn}
-                        onClick={handleOpenMenu}>
-                        <svg className={css.menuBtnIcon}>
-                            <use href={`${sprite}#icon-menu`}></use>
-                        </svg>
-                    </button>
-                </div>
-
                 <div
                     className={clsx(css.sideMenu, {
                         [css.closed]: !isMenuOpen,
@@ -85,6 +72,20 @@ export const Header = () => {
                         Log out
                     </button>
                 </div>
+                
+                <div className={css.info}>
+                    <UserBar />
+
+                    <button
+                        type="button"
+                        className={css.menuBtn}
+                        onClick={handleOpenMenu}>
+                        <svg className={css.menuBtnIcon}>
+                            <use href={`${sprite}#icon-menu`}></use>
+                        </svg>
+                    </button>
+                </div>
+
             </div>
 
             <div

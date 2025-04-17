@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import css from "./Diary.module.css";
+import clsx from "clsx";
 import sprite from "/sprite.svg";
 import { useEffect, useRef, useState } from "react";
 import SpeedGraph from "../SpeedGraph/SpeedGraph";

@@ -6,6 +6,8 @@
 }
 
 .booksIcon {
+    width: 50px;
+    height: 50px;
     margin-bottom: 15px;
 }
 
@@ -28,5 +30,26 @@
     color: var(--main-text);
     span {
         color: var(--main-text-marked);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        padding: 50px;
+    }
+
+    .booksIcon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 32px;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .text {
+        max-width: 242px;
     }
 }

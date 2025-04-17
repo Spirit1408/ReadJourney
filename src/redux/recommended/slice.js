@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchRecommendedBooks } from "./operations";
+import {
+	fetchRecommendedBooks,
+	fetchRandomRecommendedBooks,
+} from "./operations";
 
 const initialState = {
 	items: [],
+	randomItems: [],
 	isLoading: false,
+	isRandomLoading: false,
 	error: null,
 	totalPages: 0,
 	currentPage: 1,
@@ -20,6 +25,10 @@ const recommendedSlice = createSlice({
 	reducers: {
 		setPage: (state, action) => {
 			state.currentPage = action.payload;
+		},
+		setPerPage: (state, action) => {
+			state.perPage = action.payload;
+			state.currentPage = 1;
 		},
 		setFilters: (state, action) => {
 			state.filters = action.payload;
@@ -41,14 +50,26 @@ const recommendedSlice = createSlice({
 				state.items = action.payload.results;
 				state.totalPages = action.payload.totalPages || 0;
 				state.currentPage = action.payload.page || 1;
-				state.perPage = action.payload.perPage || 2;
 			})
 			.addCase(fetchRecommendedBooks.rejected, (state, action) => {
 				state.isLoading = false;
+				state.error = action.payload;
+			})
+			.addCase(fetchRandomRecommendedBooks.pending, (state) => {
+				state.isRandomLoading = true;
+				state.error = null;
+			})
+			.addCase(fetchRandomRecommendedBooks.fulfilled, (state, action) => {
+				state.isRandomLoading = false;
+				state.randomItems = action.payload.results;
+			})
+			.addCase(fetchRandomRecommendedBooks.rejected, (state, action) => {
+				state.isRandomLoading = false;
 				state.error = action.payload;
 			});
 	},
 });
 
-export const { setPage, setFilters, resetFilters } = recommendedSlice.actions;
+export const { setPage, setPerPage, setFilters, resetFilters } =
+	recommendedSlice.actions;
 export const recommendedReducer = recommendedSlice.reducer;

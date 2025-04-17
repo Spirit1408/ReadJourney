@@ -5,3 +5,10 @@
 	max-width: 43px;
 	max-height: 17px;
 }
+
+@media (min-width: 768px) {
+	.graph {
+		max-width: 59px;
+		max-height: 24px;
+	}
+}

@@ -9,11 +9,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
 
 .modal {
-    
+    position: relative;
     border: 1px solid rgba(104, 104, 104, 0.2);
     background-color: var(--scale-dark);
     border-radius: 12px;
@@ -61,5 +60,11 @@
     }
     to {
         opacity: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .modal {
+        max-width: 500px;
     }
 }

@@ -1,5 +1,5 @@
-import toast from "react-hot-toast";
 import css from "./Filters.module.css";
+import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 
 export const Filters = ({ onFilterSubmit }) => {
@@ -22,7 +22,7 @@ export const Filters = ({ onFilterSubmit }) => {
 	};
 
 	return (
-		<>
+		<div>
 			<span className={css.title}>Filters:</span>
 			<form className={css.form} onSubmit={handleSubmit(onSubmit)}>
 				<div className={css.inputs}>
@@ -49,6 +49,6 @@ export const Filters = ({ onFilterSubmit }) => {
 					To apply
 				</button>
 			</form>
-		</>
+		</div>
 	);
 };

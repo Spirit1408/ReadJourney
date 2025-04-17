@@ -188,3 +188,59 @@
         color: var(--main-text-marked);
     }
 }
+
+@media (min-width: 768px) {
+    .form {
+        gap: 82px;
+    }
+
+    .inputs {
+        gap: 14px;
+    }
+
+    .inputGroup {
+        gap: 8px;
+    }
+
+    .inputPrefix {
+        padding: 16px 10px 16px 14px;
+        font-size: 14px;
+        line-height: 129%;
+    }
+
+    .inputWithPrefixField {
+        padding: 16px 53px 16px 0;
+        font-size: 14px;
+        line-height: 129%;
+    }
+
+    .icons{
+        right: 18px;
+    }
+
+    .errorMessage {
+        font-size: 12px;
+        line-height: 117%;
+    }
+
+    .successMessage {
+        font-size: 12px;
+        line-height: 117%;
+    }
+
+    .btnGroup {
+        gap: 20px;
+    }
+
+    .submitBtn {
+        max-width: 225px;
+        padding: 16px;
+        font-size: 20px;
+        line-height: 100%;
+    }
+
+    .link {
+        font-size: 14px;
+        line-height: 129%;
+    }
+}

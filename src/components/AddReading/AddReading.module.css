@@ -1,145 +1,202 @@
 .title {
-	display: block;
-	padding-left: 14px;
-	font-weight: 500;
-	font-size: 10px;
-	line-height: 120%;
-	letter-spacing: -0.02em;
-	color: var(--main-text-marked);
-	margin-bottom: 8px;
+    display: block;
+    padding-left: 14px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: var(--main-text-marked);
+    margin-bottom: 8px;
 }
 
 .form {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .inputs {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .inputGroup {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .inputWithPrefix {
-	display: flex;
-	width: 100%;
-	border-radius: 12px;
-	border: 1px solid var(--input-bg);
-	background-color: var(--input-bg);
-	transition: border-color 0.3s ease-in-out;
-	&:focus,
-	&:hover {
-		border: 1px solid rgba(249, 249, 249, 0.1);
-	}
+    display: flex;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--input-bg);
+    background-color: var(--input-bg);
+    transition: border-color 0.3s ease-in-out;
+    &:focus,
+    &:hover {
+        border: 1px solid rgba(249, 249, 249, 0.1);
+    }
 }
 
 .errorInput {
-	border: 1px solid var(--red);
-	&:focus,
-	&:hover {
-		border: 1px solid var(--red);
-	}
+    border: 1px solid var(--red);
+    &:focus,
+    &:hover {
+        border: 1px solid var(--red);
+    }
 }
 
 .inputPrefix {
-	padding: 14px 5px 14px 14px;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 133%;
-	letter-spacing: -0.02em;
-	color: var(--main-text);
-	background-color: transparent;
-	white-space: nowrap;
+    padding: 14px 10px 14px 14px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    color: var(--main-text);
+    background-color: transparent;
+    white-space: nowrap;
 }
 
 .inputWithPrefixField {
-	flex-grow: 1;
-	border: none;
-	padding: 14px 14px 14px 0;
-	outline: none;
-	background-color: transparent;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 133%;
-	letter-spacing: -0.02em;
-	color: var(--main-text-marked);
+    flex-grow: 1;
+    border: none;
+    padding: 14px 14px 14px 0;
+    outline: none;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    color: var(--main-text-marked);
 }
 
 .inputWithPrefixField::-webkit-outer-spin-button,
 .inputWithPrefixField::-webkit-inner-spin-button {
-	-webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
 .errorMessage {
-	padding-left: 14px;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 117%;
-	letter-spacing: -0.02em;
-	color: var(--red);
+    padding-left: 14px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: var(--red);
 }
 
 .submitBtn {
-	align-self: flex-start;
-	border-radius: 30px;
-	border: 1px solid var(--inactive-btn);
-	padding: 10px 20px;
-	background-color: transparent;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 129%;
-	letter-spacing: 0.02em;
-	color: var(--main-text-marked);
-	cursor: pointer;
-	margin-bottom: 40px;
-	transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out,
-		color 0.2s ease-in-out;
-	&:hover,
-	&:focus {
-		border-color: var(--main-text-marked);
-		background-color: var(--main-text-marked);
-		color: var(--scale-dark);
-	}
+    align-self: flex-start;
+    border-radius: 30px;
+    border: 1px solid var(--inactive-btn);
+    padding: 10px 20px;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: 0.02em;
+    color: var(--main-text-marked);
+    cursor: pointer;
+    margin-bottom: 40px;
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
+    &:hover,
+    &:focus {
+        border-color: var(--main-text-marked);
+        background-color: var(--main-text-marked);
+        color: var(--scale-dark);
+    }
 }
 
 .introTitle {
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 100%;
-	letter-spacing: -0.02em;
-	color: var(--main-text-marked);
-	margin-bottom: 14px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: var(--main-text-marked);
+    margin-bottom: 14px;
 }
 
 .introText {
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 129%;
-	letter-spacing: -0.02em;
-	color: var(--main-text);
-	margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: var(--main-text);
+    margin-bottom: 20px;
 }
 
 .introImgWrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 80px;
-	height: 80px;
-	padding: 24px;
-	border-radius: 100%;
-	background-color: var(--input-bg);
-	margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    padding: 24px;
+    border-radius: 100%;
+    background-color: var(--input-bg);
+    margin: 0 auto 20px;
 }
 
 .introImg {
-	width: 32px;
-	height: 32px;
+    width: 32px;
+    height: 32px;
+}
+
+@media screen and (min-width: 768px) {
+    .title {
+        font-size: 14px;
+        line-height: 129%;
+    }
+
+    .inputPrefix {
+        padding: 16px 10px 16px 14px;
+        font-size: 14px;
+        line-height: 129%;
+    }
+
+    .inputWithPrefixField {
+        padding: 16px 16px 16px 0;
+        font-size: 14px;
+        line-height: 129%;
+    }
+
+    .errorMessage {
+        padding-left: 14px;
+        font-size: 12px;
+        line-height: 117%;
+    }
+
+    .submitBtn {
+        padding: 12px 28px;
+        font-size: 16px;
+        line-height: 112%;
+        margin-bottom: 134px;
+    }
+
+    .wrapper {
+        display: flex;
+        gap: 40px;
+    }
+
+    .introTitle {
+        font-size: 20px;
+    }
+
+    .introText {
+        margin-bottom: 50px;
+    }
+
+    .introImgWrapper {
+        width: 100px;
+        height: 100px;
+        padding: 15px 25px;
+        margin: 0 auto 52px;
+    }
+
+    .introImg {
+        width: 50px;
+        height: 50px;
+    }
 }

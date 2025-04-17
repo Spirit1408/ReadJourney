@@ -37,10 +37,43 @@
     transition: stroke 0.2s ease-in-out;
 }
 
-.button:hover .icon, .button:focus .icon {
+.button:hover .icon,
+.button:focus .icon {
     stroke: var(--main-text-marked);
 }
 
 .active .icon {
     stroke: var(--main-text-marked);
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        position: absolute;
+        top: 32px;
+        right: 16px;
+        width: 321px;
+        background-color: var(--scale-dark);
+    }
+
+    .bar {
+        margin-bottom: 16px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .btnGroup {
+        margin-right: 16px;
+    }
+
+    .button {
+        width: 20px;
+        height: 20px;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
 }

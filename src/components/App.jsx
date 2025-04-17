@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import RegisterPage from "./../pages/RegisterPage";
 import LoginPage from "./../pages/LoginPage";
 import { PrivateRoute } from "./PrivateRoute";
-import { MainLayout } from "./../components/MainLayout/MainLayout";
+import { MainLayout } from "./MainLayout";
 import RecommendedPage from "./../pages/RecommendedPage/RecommendedPage";
 import MyLibraryPage from "./../pages/MyLibraryPage/MyLibraryPage";
 import ReadingPage from "../pages/ReadingPage/ReadingPage";

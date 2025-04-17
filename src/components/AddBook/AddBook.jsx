@@ -71,7 +71,7 @@ export const AddBook = () => {
 	};
 
 	return (
-		<>
+		<div>
 			<span className={css.title}>Filters:</span>
 			<form className={css.form} onSubmit={handleSubmit(onSubmit)}>
 				<div className={css.inputs}>
@@ -142,6 +142,6 @@ export const AddBook = () => {
 					<AddBookConfirm />
 				</Modal>
 			)}
-		</>
+		</div>
 	);
 };

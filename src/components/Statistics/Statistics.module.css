@@ -1,66 +1,99 @@
 .wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 20px;
-	border-radius: 12px;
-	background-color: var(--input-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: var(--input-bg);
 }
+
 .infoIndicator {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 116px;
-	height: 116px;
-	margin-bottom: 21px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 116px;
+    height: 116px;
+    margin-bottom: 21px;
 }
 
 .label {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 111%;
-	letter-spacing: -0.02em;
-	color: var(--main-text-marked);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 111%;
+    letter-spacing: -0.02em;
+    color: var(--main-text-marked);
 }
 
 .info {
-	display: flex;
-	gap: 15px;
-	align-items: baseline;
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
 }
 
 .legend {
-	background-color: var(--green);
-	border-radius: 4px;
-	width: 14px;
-	height: 14px;
+    background-color: var(--green);
+    border-radius: 4px;
+    width: 14px;
+    height: 14px;
 }
 
 .infoData {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .percentage {
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 129%;
-	letter-spacing: -0.02em;
-	color: var(--main-text-marked);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: var(--main-text-marked);
 }
 
 .pages {
-	font-weight: 500;
-	font-size: 10px;
-	line-height: 120%;
-	letter-spacing: -0.02em;
-	text-align: center;
-	color: var(--main-text);
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: var(--main-text);
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        padding: 28px;
+		height: 252px;
+    }
+
+    .infoIndicator {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 138px;
+        height: 138px;
+        margin-bottom: 16px;
+    }
+
+    .label {
+        font-size: 20px;
+        line-height: 100%;
+    }
+
+    .percentage {
+        font-size: 20px;
+        line-height: 100%;
+    }
+
+    .pages {
+        font-size: 12px;
+        line-height: 117%;
+    }
 }

@@ -1,6 +1,15 @@
 .dash {
+    position: relative;
     padding: 20px;
     border-radius: 30px;
     background-color: var(--scale-dark);
     width: 100%;
+}
+
+@media (min-width: 768px) {
+    .dash {
+        padding: 32px;
+        display: flex;
+        gap: 32px;
+    }
 }

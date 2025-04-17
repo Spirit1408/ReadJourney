@@ -92,7 +92,7 @@ export const MyLibraryBooks = () => {
 					<div className={css.selectButton} onClick={toggleSelect}>
 						<span>{selectedOption}</span>
 
-						<svg className={clsx(css.arrow, isSelectOpen && css.arrowUp)}>
+						<svg className={clsx(css.arrow, isSelectOpen && css.arrowDown)}>
 							<use href={`${sprite}#icon-select`}></use>
 						</svg>
 					</div>
@@ -129,7 +129,7 @@ export const MyLibraryBooks = () => {
 								media="(min-width: 375px)"
 								srcSet={`${booksM} 1x, ${booksM2x} 2x`}
 							/>
-							<img src={booksM} alt="books icon" loading="lazy" />
+							<img src={booksM} alt="books icon" loading="lazy" className={css.icon} />
 						</picture>
 					</div>
 

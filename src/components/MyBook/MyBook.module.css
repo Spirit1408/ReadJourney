@@ -29,15 +29,15 @@
 }
 
 .book {
-    margin: 0 auto;
+    margin: 0 auto 20px;
     max-width: 146px;
-    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .bookCover {
+    max-width: 137px;
     margin-bottom: 10px;
     border-radius: 8px;
 }
@@ -49,6 +49,7 @@
     letter-spacing: -0.02em;
     text-align: center;
     color: var(--main-text-marked);
+    margin-bottom: 5px;
 }
 
 .bookAuthor {
@@ -57,7 +58,6 @@
     line-height: 120%;
     letter-spacing: -0.02em;
     color: var(--main-text);
-    margin-bottom: 5px;
 }
 
 .progress {
@@ -84,4 +84,61 @@
     width: 15px;
     height: 15px;
     border-radius: 3px;
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        padding: 40px 40px 25px 40px;
+    }
+
+    .bar {
+        margin-bottom: 32px;
+    }
+
+    .title {
+        font-size: 28px;
+        line-height: 114%;
+        letter-spacing: 0.02em;
+    }
+
+    .timeStat {
+        font-size: 14px;
+        line-height: 129%;
+    }
+
+    .book {
+        max-width: unset;
+        margin-bottom: 16px;
+    }
+
+    .bookCover {
+        max-width: 169px;
+        margin-bottom: 25px;
+    }
+
+    .bookTitle {
+        font-size: 20px;
+        line-height: 100%;
+        margin-bottom: 4px;
+    }
+
+    .bookAuthor {
+        font-size: 14px;
+        line-height: 129%;
+    }
+
+    .progress {
+        width: 50px;
+        height: 50px;
+    }
+
+    .indicator {
+        width: 40px;
+        height: 40px;
+    }
+
+    .active {
+        width: 20px;
+        height: 20px;
+    }
 }

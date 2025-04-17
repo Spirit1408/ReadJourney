@@ -6,7 +6,6 @@
 .thumb {
     width: 50px;
     height: 50px;
-    margin-bottom: 20px;
     margin: 0 auto 20px;
 }
 
@@ -29,5 +28,26 @@
     color: var(--main-text);
     span {
         color: var(--main-text-marked);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        padding: 60px 50px;
+    }
+
+    .thumb {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 32px;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .text {
+        max-width: 242px;
     }
 }

@@ -19,15 +19,9 @@
 .input {
     border-radius: 12px;
     border: 1px solid var(--input-bg);
-    padding: 14px 50px 14px 14px;
     width: 100%;
     outline: none;
     background-color: var(--input-bg);
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 133%;
-    letter-spacing: -0.02em;
-    color: var(--main-text-marked);
     transition: border-color 0.3s ease-in-out;
     &::placeholder {
         color: var(--main-text);
@@ -52,7 +46,7 @@
 }
 
 .inputPrefix {
-    padding: 14px 5px 14px 14px;
+    padding: 14px 10px 14px 14px;
     font-weight: 500;
     font-size: 12px;
     line-height: 133%;
@@ -94,7 +88,7 @@
 .icons {
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: 16px;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
@@ -130,8 +124,8 @@
 .errorMessage {
     padding-left: 14px;
     font-weight: 500;
-    font-size: 12px;
-    line-height: 117%;
+    font-size: 10px;
+    line-height: 120%;
     letter-spacing: -0.02em;
     color: var(--red);
 }
@@ -139,8 +133,8 @@
 .successMessage {
     padding-left: 14px;
     font-weight: 500;
-    font-size: 12px;
-    line-height: 117%;
+    font-size: 10px;
+    line-height: 120%;
     letter-spacing: -0.02em;
     color: var(--green);
 }
@@ -186,5 +180,61 @@
     &:hover,
     &:focus {
         color: var(--main-text-marked);
+    }
+}
+
+@media (min-width: 768px) {
+    .form {
+        gap: 146px;
+    }
+
+    .inputs {
+        gap: 14px;
+    }
+
+    .inputGroup {
+        gap: 8px;
+    }
+
+    .inputPrefix {
+        padding: 16px 10px 16px 14px;
+        font-size: 14px;
+        line-height: 129%;
+    }
+
+    .inputWithPrefixField {
+        padding: 16px 53px 16px 0;
+        font-size: 14px;
+        line-height: 129%;
+    }
+
+    .icons {
+        right: 18px;
+    }
+
+    .errorMessage {
+        font-size: 12px;
+        line-height: 117%;
+    }
+
+    .successMessage {
+        font-size: 12px;
+        line-height: 117%;
+    }
+
+    .btnGroup {
+        gap: 20px;
+    }
+
+    .submitBtn {
+        max-width: 166px;
+        padding: 16px;
+        font-size: 20px;
+        line-height: 100%;
+    }
+
+    .link {
+        font-size: 14px;
+        line-height: 129%;
     }
 }

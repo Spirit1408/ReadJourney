@@ -65,3 +65,36 @@
         pointer-events: none;
     }
 }
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        padding: 50px 169px;
+    }
+
+    .cover {
+        margin-bottom: 16px;
+        max-width: 153px;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+
+    .author {
+        font-size: 14px;
+        line-height: 129%;
+        letter-spacing: -0.02em;
+    }
+
+    .pagesAmount {
+        margin-bottom: 32px;
+    }
+
+    .button {
+        padding: 14px 28px;
+        font-size: 16px;
+        line-height: 112%;
+        text-wrap: nowrap;
+    }
+}
