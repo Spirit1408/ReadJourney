@@ -1,14 +1,18 @@
+.graphContainer {
+	width: 43px;
+	height: 17px;
+	display: block;
+}
+
 .graph {
 	width: 100%;
 	height: 100%;
 	display: block;
-	max-width: 43px;
-	max-height: 17px;
 }
 
 @media (min-width: 768px) {
-	.graph {
-		max-width: 59px;
-		max-height: 24px;
+	.graphContainer {
+		width: 59px;
+		height: 24px;
 	}
 }

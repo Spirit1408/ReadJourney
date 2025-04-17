@@ -1,260 +1,264 @@
 .wrapperContainer {
-    position: relative;
-    width: 100%;
+	position: relative;
+	width: 100%;
 }
 
 .wrapper {
-    position: relative;
-    padding: 16px;
-    background-color: var(--input-bg);
-    border-radius: 12px;
-    max-height: 211px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+	position: relative;
+	padding: 16px;
+	background-color: var(--input-bg);
+	border-radius: 12px;
+	max-height: 211px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 }
 
 .wrapper::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 .scrollbarTrack {
-    position: absolute;
-    top: 16px;
-    right: -12px;
-    width: 5px;
-    height: calc(100% - 32px);
-    background-color: transparent;
-    border-radius: 15px;
-    pointer-events: none;
+	position: absolute;
+	top: 16px;
+	right: -12px;
+	width: 5px;
+	height: calc(100% - 32px);
+	background-color: transparent;
+	border-radius: 15px;
+	pointer-events: none;
 }
 
 .scrollbar {
-    width: 100%;
-    background-color: var(--input-bg);
-    border-radius: 15px;
-    position: absolute;
-    top: 0;
+	width: 100%;
+	background-color: var(--input-bg);
+	border-radius: 15px;
+	position: absolute;
+	top: 0;
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    gap: 17px;
+	display: flex;
+	flex-direction: column;
+	gap: 17px;
 }
 
 .timeStamp {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .leftBlock {
-    display: flex;
-    gap: 9px;
-    align-items: flex-start;
+	display: flex;
+	gap: 9px;
+	align-items: flex-start;
 }
 
 .outerSquare {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
-    background-color: var(--main-text);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	position: relative;
+	width: 16px;
+	height: 16px;
+	border-radius: 4px;
+	background-color: var(--main-text);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .outerSquare::after {
-    position: absolute;
-    content: "";
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 90px;
-    background-color: var(--scale-dark);
+	position: absolute;
+	content: "";
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	height: 90px;
+	background-color: var(--scale-dark);
 }
 
 .list li:last-child .outerSquare::after {
-    display: none;
+	display: none;
 }
 
 .innerSquare {
-    width: 8px;
-    height: 8px;
-    border-radius: 2px;
-    background-color: var(--scale-dark);
+	width: 8px;
+	height: 8px;
+	border-radius: 2px;
+	background-color: var(--scale-dark);
 }
 
 .squareActive {
-    background-color: var(--main-text-marked);
+	background-color: var(--main-text-marked);
 
-    .innerSquare {
-        background-color: var(--main-bg);
-    }
+	.innerSquare {
+		background-color: var(--main-bg);
+	}
 }
 
 .info {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .date {
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 133%;
-    letter-spacing: 0.02em;
-    color: var(--main-text);
-    margin-bottom: 17px;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 133%;
+	letter-spacing: 0.02em;
+	color: var(--main-text);
+	margin-bottom: 17px;
 }
 
 .dateActive {
-    color: var(--main-text-marked);
+	color: var(--main-text-marked);
 }
 
 .percentage {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 129%;
-    letter-spacing: -0.02em;
-    color: var(--main-text-marked);
-    margin-bottom: 4px;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 129%;
+	letter-spacing: -0.02em;
+	color: var(--main-text-marked);
+	margin-bottom: 4px;
 }
 
 .duration {
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 120%;
-    letter-spacing: -0.02em;
-    color: var(--main-text);
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+	color: var(--main-text);
 }
 
 .rightBlockWrapper {
-    display: flex;
-    gap: 6px;
-    align-items: center;
+	display: flex;
+	gap: 6px;
+	align-items: center;
 }
 
 .rightBlock {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
 }
 
 .pages {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 133%;
-    letter-spacing: -0.02em;
-    text-align: center;
-    margin-bottom: 16px;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 133%;
+	letter-spacing: -0.02em;
+	text-align: center;
+	margin-bottom: 16px;
 }
 
 .graph {
-    width: 43px;
-    height: 17px;
-    margin-bottom: 7px;
+	width: 43px;
+	height: 17px;
+	margin-bottom: 7px;
 }
 
 .speed {
-    font-weight: 500;
-    max-width: 43px;
-    font-size: 10px;
-    line-height: 120%;
-    letter-spacing: -0.02em;
-    text-align: center;
-    color: var(--main-text);
+	font-weight: 500;
+	max-width: 43px;
+	font-size: 10px;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+	text-align: center;
+	color: var(--main-text);
 }
 
 .deleteBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 14px;
-    height: 14px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 14px;
+	height: 14px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
 }
 
 .icon {
-    width: 14px;
-    height: 14px;
-    stroke: var(--main-text);
-    transition: stroke 0.2s ease-in-out;
+	width: 14px;
+	height: 14px;
+	stroke: var(--main-text);
+	transition: stroke 0.2s ease-in-out;
 }
 
 .deleteBtn:hover .icon,
 .deleteBtn:focus .icon {
-    stroke: var(--main-text-marked);
+	stroke: var(--main-text-marked);
 }
 
 @media screen and (min-width: 768px) {
-    .wrapper {
-        max-height: unset;
-        height: 252px;
-    }
+	.wrapper {
+		max-height: unset;
+		height: 252px;
+	}
 
-    .scrollbarTrack {
-        right: -10px;
-    }
+	.scrollbarTrack {
+		right: -10px;
+	}
 
-    .list {
-        gap: 14px;
-    }
+	.list {
+		gap: 14px;
+	}
 
-    .leftBlock {
-        gap: 10px;
-    }
+	.leftBlock {
+		gap: 10px;
+	}
 
-    .outerSquare {
-        position: relative;
-        width: 20px;
-        height: 20px;
-        border-radius: 4px;
-    }
+	.outerSquare {
+		position: relative;
+		width: 20px;
+		height: 20px;
+		border-radius: 4px;
+	}
 
-    .innerSquare {
-        width: 12px;
-        height: 12px;
-    }
+	.innerSquare {
+		width: 12px;
+		height: 12px;
+	}
 
-    .date {
-        font-size: 16px;
-        line-height: 112%;
-    }
+	.date {
+		font-size: 16px;
+		line-height: 112%;
+	}
 
-    .percentage {
-        font-size: 20px;
-        line-height: 100%;
-        margin-bottom: 8px;
-    }
+	.percentage {
+		font-size: 20px;
+		line-height: 100%;
+		margin-bottom: 8px;
+	}
 
-    .duration {
-        font-size: 12px;
-        line-height: 117%;
-    }
+	.duration {
+		font-size: 12px;
+		line-height: 117%;
+	}
 
-    .rightBlockWrapper {
-        gap: 8px;
-    }
+	.rightBlockWrapper {
+		gap: 8px;
+	}
 
-    .pages {
-        font-size: 14px;
-        line-height: 129%;
-        margin-bottom: 18px;
-    }
+	.rightBlock {
+		align-items: center;
+	}
 
-    .graph {
-        width: 59px;
-        height: 24px;
-    }
+	.pages {
+		font-size: 14px;
+		line-height: 129%;
+		margin-bottom: 18px;
+	}
 
-    .speed {
-        max-width: 55px;
-        font-size: 12px;
-        line-height: 117%;
-    }
+	.graph {
+		width: 59px;
+		height: 24px;
+	}
+
+	.speed {
+		max-width: 55px;
+		font-size: 12px;
+		line-height: 117%;
+	}
 }
