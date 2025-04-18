@@ -12,6 +12,22 @@
     border-radius: 8px;
 }
 
+.coverDefault {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 140px;
+	height: 213px;
+	margin-bottom: 16px;
+	border-radius: 8px;
+	background-color: var(--input-bg);
+}
+
+.coverDefaultIcon {
+    width: 111px;
+    height: 72px;
+}
+
 .title {
     font-weight: 700;
     font-size: 18px;
@@ -70,6 +86,16 @@
     .cover {
         width: 153px;
         height: 233px;
+    }
+
+    .coverDefault {
+        width: 153px;
+        height: 233px;
+    }
+
+    .coverDefaultIcon {
+        width: 121px;
+        height: 81px;
     }
 
     .title {

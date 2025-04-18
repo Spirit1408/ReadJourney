@@ -1,5 +1,9 @@
 import css from "./MyBook.module.css";
 import clsx from "clsx";
+import coverD from "../../images/cover-d.png";
+import coverD2x from "../../images/cover-d@2x.png";
+import coverM from "../../images/cover-m.png";
+import coverM2x from "../../images/cover-m@2x.png";
 import { useSelector, useDispatch } from "react-redux";
 import {
 	selectBook,
@@ -41,7 +45,23 @@ export const MyBook = () => {
 			</div>
 
 			<div className={css.book}>
-				<img src={book.imageUrl} alt={book.title} className={css.bookCover} />
+				{book.imageUrl ? <img src={book.imageUrl} alt={book.title} className={css.bookCover} /> : 
+				<div className={css.bookCoverDefault}>
+					<picture>
+						<source media="(min-width: 1440px)"
+							srcSet={`${coverD} 1x, ${coverD2x} 2x`}
+						/>
+						<source media="(min-width: 375px)"
+							srcSet={`${coverM} 1x, ${coverM2x} 2x`}
+						/>
+						<img
+							loading="lazy"
+							className={css.bookCoverDefaultIcon}
+							alt="Default book cover"
+							src={coverM}
+						/>
+					</picture>
+				</div>}
 
 				<h3 className={css.bookTitle}>{book.title}</h3>
 

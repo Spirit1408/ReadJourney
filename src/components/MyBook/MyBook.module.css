@@ -42,6 +42,22 @@
     border-radius: 8px;
 }
 
+.bookCoverDefault {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 137px;
+    height: 208px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: var(--input-bg);
+}
+
+.bookCoverDefaultIcon {
+    width: 111px;
+    height: 72px;
+}
+
 .bookTitle {
     font-weight: 700;
     font-size: 14px;
@@ -115,6 +131,18 @@
         max-width: 169px;
         margin-bottom: 25px;
     }
+    
+    .bookCoverDefault {
+        width: 169px;
+        height: 256px;
+        margin-bottom: 25px;
+    }
+
+    .bookCoverDefaultIcon {
+        width: 141px;
+        height: 92px;
+    }
+
 
     .bookTitle {
         font-size: 20px;

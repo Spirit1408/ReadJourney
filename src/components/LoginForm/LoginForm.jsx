@@ -8,7 +8,7 @@ import sprite from "/sprite.svg";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsLoading, selectAuthError } from "../../redux/auth/selectors";
+import { selectAuthError } from "../../redux/auth/selectors";
 import { login } from "../../redux/auth/operations";
 
 const schema = yup.object({
@@ -26,7 +26,6 @@ export const LoginForm = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const isLoading = useSelector(selectIsLoading);
 	const error = useSelector(selectAuthError);
 
 	useEffect(() => {

@@ -105,7 +105,6 @@ export const AddReading = () => {
                 .then(() => {
                     toast.success("Reading finished successfully");
 
-                    // Check if the book is completely read
                     if (pageNumber === book.totalPages) {
                         setShowCompletedModal(true);
                     }
