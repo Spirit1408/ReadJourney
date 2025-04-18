@@ -1,13 +1,8 @@
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes } from "react-router-dom";
-import RegisterPage from "./../pages/RegisterPage";
-import LoginPage from "./../pages/LoginPage";
+import { lazy, Suspense, useEffect } from "react";
 import { PrivateRoute } from "./PrivateRoute";
 import { MainLayout } from "./MainLayout";
-import RecommendedPage from "./../pages/RecommendedPage/RecommendedPage";
-import MyLibraryPage from "./../pages/MyLibraryPage/MyLibraryPage";
-import ReadingPage from "../pages/ReadingPage/ReadingPage";
-import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	selectIsRefreshing,
@@ -15,8 +10,18 @@ import {
 	selectIsLoggedIn,
 } from "../redux/auth/selectors";
 import { refreshUser, initializeTokenRefresh } from "../redux/auth/operations";
-import { useEffect } from "react";
 import { Loader } from "./Loader/Loader";
+
+const RegisterPage = lazy(() => import("./../pages/RegisterPage"));
+const LoginPage = lazy(() => import("./../pages/LoginPage"));
+const RecommendedPage = lazy(
+	() => import("./../pages/RecommendedPage/RecommendedPage"),
+);
+const MyLibraryPage = lazy(
+	() => import("./../pages/MyLibraryPage/MyLibraryPage"),
+);
+const ReadingPage = lazy(() => import("../pages/ReadingPage/ReadingPage"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
 function App() {
 	const dispatch = useDispatch();
@@ -41,17 +46,19 @@ function App() {
 			{isRefreshing ? (
 				<Loader />
 			) : (
-				<Routes>
-					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/login" element={<LoginPage />} />
-					<Route element={<PrivateRoute component={MainLayout} />}>
-						<Route path="/" element={<Navigate to="/recommended" />} />
-						<Route path="/recommended" element={<RecommendedPage />} />
-						<Route path="/library" element={<MyLibraryPage />} />
-						<Route path="/reading" element={<ReadingPage />} />
-					</Route>
-					<Route path="*" element={<NotFoundPage />} />
-				</Routes>
+				<Suspense fallback={<Loader />}>
+					<Routes>
+						<Route path="/register" element={<RegisterPage />} />
+						<Route path="/login" element={<LoginPage />} />
+						<Route element={<PrivateRoute component={MainLayout} />}>
+							<Route path="/" element={<Navigate to="/recommended" />} />
+							<Route path="/recommended" element={<RecommendedPage />} />
+							<Route path="/library" element={<MyLibraryPage />} />
+							<Route path="/reading" element={<ReadingPage />} />
+						</Route>
+						<Route path="*" element={<NotFoundPage />} />
+					</Routes>
+				</Suspense>
 			)}
 			<Toaster position="bottom-right" />
 		</>

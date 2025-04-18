@@ -78,3 +78,27 @@
         display: none;
     }
 }
+
+@media (min-width: 1280px) {
+    .entryLayout {
+        display: flex;
+        gap: 16px;
+    }
+
+    .wrapper {
+        padding: 40px 64px;
+        width: calc((100% - 16px) / 2);
+    }
+
+    .logoWrapper {
+        margin-bottom: 107px;
+    }
+
+    .imgWrapper {
+        display: flex;
+        width: calc((100% - 16px) / 2);
+        padding: 80px 97px 0px;
+        margin-top: unset;
+        height: auto;
+    }
+}

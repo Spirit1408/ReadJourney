@@ -9,7 +9,7 @@ export const ReadingCompleted = () => {
         <div className={css.wrapper}>
             <picture>
                 <source
-                    media="(min-width: 1440px)"
+                    media="(min-width: 1280px)"
                     srcSet={`${booksD} 1x, ${booksD2x} 2x`}
                 />
                 <source

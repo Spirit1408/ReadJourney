@@ -262,3 +262,13 @@
 		line-height: 117%;
 	}
 }
+
+@media screen and (min-width: 1280px) {
+	.wrapper {
+		height: 373px;
+	}
+
+	.scrollbarTrack {
+		right: -12px;
+	}
+}

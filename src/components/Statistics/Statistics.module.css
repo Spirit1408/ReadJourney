@@ -1,3 +1,13 @@
+.inspiration {
+    display: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: var(--main-text);
+    margin-bottom: 20px;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -69,14 +79,10 @@
 @media (min-width: 768px) {
     .wrapper {
         padding: 28px;
-		height: 252px;
+        height: 252px;
     }
 
     .infoIndicator {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 138px;
         height: 138px;
         margin-bottom: 16px;
@@ -95,5 +101,22 @@
     .pages {
         font-size: 12px;
         line-height: 117%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .inspiration {
+        display: block;
+    }
+
+    .wrapper {
+        padding: 30px 20px 20px;
+        height: 281px;
+    }
+
+    .infoIndicator {
+        width: 168px;
+        height: 168px;
+        margin-bottom: 20px;
     }
 }

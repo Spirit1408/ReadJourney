@@ -1,0 +1,32 @@
+.wrapper {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 15px 20px 14px;
+    border-radius: 12px;
+    background-color: var(--input-bg);
+}
+
+.image {
+    width: 40px;
+    height: 40px;
+}
+
+.quote {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: -0.02em;
+    color: var(--main-text);
+    span {
+        color: var(--main-text-marked);
+    }
+    max-width: 219px;
+}
+
+@media screen and (min-width: 1280px) {
+    .wrapper {
+        display: flex;
+    }
+}

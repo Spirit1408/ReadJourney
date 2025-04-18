@@ -11,3 +11,12 @@
         gap: 16px;
     }
 }
+
+@media (min-width: 1280px) {
+    .wrapper {
+        flex-direction: row;
+        gap: 16px;
+        align-items: flex-start;
+        height: 651px;
+    }
+}

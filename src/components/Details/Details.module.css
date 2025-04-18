@@ -77,3 +77,20 @@
         height: 20px;
     }
 }
+
+@media (min-width: 1280px) {
+    .wrapper {
+        top: unset;
+        right: unset;
+        bottom: 20px;
+        width: 313px;
+    }
+
+    .bar {
+        margin-bottom: 20px;
+    }
+
+    .btnGroup {
+        margin-right: unset;
+    }
+}

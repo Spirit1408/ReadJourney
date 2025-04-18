@@ -40,28 +40,34 @@ export const MyBook = () => {
 				<h2 className={css.title}>My reading</h2>
 
 				<p className={css.timeStat}>
-					{timeLeftToRead && `${timeLeftToRead.hours} hours and ${timeLeftToRead.minutes} minutes left`}
+					{timeLeftToRead &&
+						`${timeLeftToRead.hours} hours and ${timeLeftToRead.minutes} minutes left`}
 				</p>
 			</div>
 
 			<div className={css.book}>
-				{book.imageUrl ? <img src={book.imageUrl} alt={book.title} className={css.bookCover} /> : 
-				<div className={css.bookCoverDefault}>
-					<picture>
-						<source media="(min-width: 1440px)"
-							srcSet={`${coverD} 1x, ${coverD2x} 2x`}
-						/>
-						<source media="(min-width: 375px)"
-							srcSet={`${coverM} 1x, ${coverM2x} 2x`}
-						/>
-						<img
-							loading="lazy"
-							className={css.bookCoverDefaultIcon}
-							alt="Default book cover"
-							src={coverM}
-						/>
-					</picture>
-				</div>}
+				{book.imageUrl ? (
+					<img src={book.imageUrl} alt={book.title} className={css.bookCover} />
+				) : (
+					<div className={css.bookCoverDefault}>
+						<picture>
+							<source
+								media="(min-width: 1280px)"
+								srcSet={`${coverD} 1x, ${coverD2x} 2x`}
+							/>
+							<source
+								media="(min-width: 375px)"
+								srcSet={`${coverM} 1x, ${coverM2x} 2x`}
+							/>
+							<img
+								loading="lazy"
+								className={css.bookCoverDefaultIcon}
+								alt="Default book cover"
+								src={coverM}
+							/>
+						</picture>
+					</div>
+				)}
 
 				<h3 className={css.bookTitle}>{book.title}</h3>
 

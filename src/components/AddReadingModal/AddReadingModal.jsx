@@ -30,7 +30,7 @@ export const AddReadingModal = ({ book }) => {
 				<div className={css.coverDefault}>
 					<picture>
 						<source
-							media="(min-width: 1440px)"
+							media="(min-width: 1280px)"
 							srcSet={`${coverD} 1x, ${coverD2x} 2x`}
 						/>
 						<source

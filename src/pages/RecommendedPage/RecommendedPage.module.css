@@ -11,3 +11,10 @@
         gap: 16px;
     }
 }
+
+@media (min-width: 1280px) {
+    .wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}

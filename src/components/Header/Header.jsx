@@ -46,9 +46,13 @@ export const Header = () => {
     return (
         <header>
             <div className={css.wrapper}>
-                <svg className={css.logo}>
-                    <use href={`${sprite}#icon-logo`}></use>
-                </svg>
+                <div className={css.logoWrapper}>
+                    <svg className={css.logo}>
+                        <use href={`${sprite}#icon-logo`}></use>
+                    </svg>
+
+                    <span className={css.logoTitle}>READ JOURNEY</span>
+                </div>
 
                 <div
                     className={clsx(css.sideMenu, {

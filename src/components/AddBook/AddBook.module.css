@@ -141,3 +141,10 @@
         margin-bottom: unset;
     }
 }
+
+@media screen and (min-width: 1280px) {
+    .form {
+        gap: 20px;
+        margin-bottom: 45px;
+    }
+}

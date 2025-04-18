@@ -1,3 +1,13 @@
+.userBarWrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.name {
+    display: none;
+}
+
 .userBar {
     width: 35px;
     height: 35px;
@@ -21,5 +31,17 @@
         height: 40px;
         font-size: 16px;
         line-height: 112%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .name {
+        display: block;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 112%;
+        letter-spacing: -0.02em;
+        text-align: center;
+        color: var(--main-text-marked);
     }
 }

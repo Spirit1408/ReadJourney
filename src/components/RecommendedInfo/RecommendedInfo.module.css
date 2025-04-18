@@ -109,3 +109,9 @@
         max-width: 197px;
     }
 }
+
+@media (min-width: 1024px) {
+    .list {
+        margin-bottom: 20px;
+    }
+}

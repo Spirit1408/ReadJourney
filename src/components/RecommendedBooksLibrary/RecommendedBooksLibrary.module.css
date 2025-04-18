@@ -121,3 +121,10 @@
         height: 24px;
     }
 }
+
+@media (min-width: 1280px) {
+    .wrapper {
+        padding: 20px;
+        height: 265px;
+    }
+}

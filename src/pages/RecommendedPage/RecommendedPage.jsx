@@ -6,6 +6,7 @@ import { RecommendedInfo } from "./../../components/RecommendedInfo/RecommendedI
 import { useDispatch } from "react-redux";
 import { fetchRecommendedBooks } from "../../redux/recommended/operations";
 import { setFilters } from "../../redux/recommended/slice";
+import { Inspiration } from "../../components/Inspiration/Inspiration";
 
 export default function RecommendedPage() {
 	const dispatch = useDispatch();
@@ -20,6 +21,7 @@ export default function RecommendedPage() {
 			<Dashboard>
 				<Filters onFilterSubmit={handleFilterSubmit} />
 				<RecommendedInfo />
+				<Inspiration />
 			</Dashboard>
 
 			<RecommendedBooks />

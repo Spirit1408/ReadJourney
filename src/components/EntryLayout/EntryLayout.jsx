@@ -7,7 +7,7 @@ import heroMobile2x from "../../images/hero-m@2x.png";
 
 export const EntryLayout = ({ children }) => {
     return (
-        <>
+        <div className={css.entryLayout}>
             <div className={css.wrapper}>
                 <div className={css.logoWrapper}>
                     <svg className={css.logo}>
@@ -27,7 +27,7 @@ export const EntryLayout = ({ children }) => {
             <div className={css.imgWrapper}>
                 <picture>
                     <source
-                        media="(min-width: 1440px)"
+                        media="(min-width: 1280px)"
                         srcSet={`${heroDesktop} 1x, ${heroDesktop2x} 2x`}
                     />
                     <source
@@ -41,6 +41,6 @@ export const EntryLayout = ({ children }) => {
                     />
                 </picture>
             </div>
-        </>
+        </div>
     );
 };
