@@ -40,7 +40,24 @@ export const addBookById = createAsyncThunk(
 			setAuthHeader(token);
 
 			const response = await axios.post(`/books/add/${bookId}`);
-			return response.data;
+			const newBook = response.data;
+
+			const bookExists = state.library.books.some(
+				(book) =>
+					book.title === newBook.title && book.author === newBook.author,
+			);
+
+			if (bookExists) {
+				try {
+					await axios.delete(`/books/remove/${newBook._id}`);
+				} catch (error) {
+					console.error("Failed to remove duplicate book:", error);
+				}
+
+				return thunkAPI.rejectWithValue("Book already exists in your library");
+			}
+
+			return newBook;
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message);
 		}

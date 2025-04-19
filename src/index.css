@@ -56,11 +56,11 @@ body {
     color: var(--main-text);
     max-width: 375px;
     margin: 0 auto;
+    background-color: var(--main-bg);
 }
 
 .container {
     padding: 20px;
-    background-color: var(--main-bg);
 }
 
 input:-webkit-autofill,
